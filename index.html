@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KEKIUS MARKET | Investor Pitch Deck</title>
+    <title>KEKIUS MARKET | Инвестиционная Презентация</title>
     
-    <meta property="og:title" content="KEKIUS MARKET | Enter the Imperial Senate">
-    <meta property="og:description" content="The Market that will return your Roman Empire. Built by the creators of 2023's most explosive memecoin ecosystem.">
+    <meta property="og:title" content="KEKIUS MARKET | Войди в Имперский Сенат">
+    <meta property="og:description" content="Маркет, который вернёт вашу Римскую Империю. Создан авторами самой взрывной memecoin-экосистемы 2023 года.">
     <meta property="og:image" content="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774225815/00-4_hxkvqp.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="KEKIUS MARKET | Enter the Imperial Senate">
-    <meta name="twitter:description" content="The Market that will return your Roman Empire.">
+    <meta name="twitter:title" content="KEKIUS MARKET | Войди в Имперский Сенат">
+    <meta name="twitter:description" content="Маркет, который вернёт вашу Римскую Империю.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774225815/00-4_hxkvqp.jpg">
-    <meta name="description" content="The Market that will return your Roman Empire. Built by the creators of 2023's most explosive memecoin ecosystem. $8B+ volume generated, 13K+ KYC users.">
+    <meta name="description" content="Маркет, который вернёт вашу Римскую Империю. Создан авторами самой взрывной memecoin-экосистемы 2023 года. Объём $8B+, 13K+ KYC-пользователей.">
     <meta name="theme-color" content="#0d0417">
     <link rel="alternate" hreflang="ru" href="ru.html">
     <link rel="alternate" hreflang="en" href="index.html">
-    <link rel="canonical" href="index.html">
+    <link rel="canonical" href="ru.html">
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -30,7 +30,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -40,7 +40,7 @@
                     colors: {
                         roman: { base: '#0d0417', surface: '#1a0b2e', border: '#3d265c', gold: '#d4af37', goldlight: '#f5d675', red: '#8b0000' }
                     },
-                    fontFamily: { roman: ['Cinzel', 'serif'], body: ['Montserrat', 'sans-serif'] },
+                    fontFamily: { roman: ['"Cormorant Garamond"', 'serif'], body: ['Montserrat', 'sans-serif'] },
                     backgroundImage: { 'gold-gradient': 'linear-gradient(to right, #b38728, #fcf6ba, #d4af37)' }
                 }
             }
@@ -49,6 +49,9 @@
 
     <style>
         body { background-color: #0d0417; color: #fdfbf7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* Force lining (uniform height) numerals for Cormorant Garamond */
+        .font-roman { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
 
         .text-gold {
             background: linear-gradient(to right, #d4af37, #fcf6ba, #b38728);
@@ -223,18 +226,18 @@
                     <div class="font-roman font-bold text-base sm:text-lg tracking-[0.2em] text-white uppercase hidden sm:block">Kekius</div>
                 </a>
                 <nav class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold">
-                    <a href="#moat" class="text-gray-400 hover:text-white transition-colors">The Moat</a>
-                    <a href="#problem" class="text-gray-400 hover:text-white transition-colors">Traction</a>
-                    <a href="#solution" class="text-gray-400 hover:text-white transition-colors">The Market</a>
-                    <a href="#track-record" class="text-gray-400 hover:text-white transition-colors">History</a>
+                    <a href="#moat" class="text-gray-400 hover:text-white transition-colors">Преимущество</a>
+                    <a href="#problem" class="text-gray-400 hover:text-white transition-colors">Трекшн</a>
+                    <a href="#solution" class="text-gray-400 hover:text-white transition-colors">Маркет</a>
+                    <a href="#track-record" class="text-gray-400 hover:text-white transition-colors">История</a>
                 </nav>
                 <div class="flex items-center gap-3 sm:gap-4">
                     <!-- Language Switcher -->
                     <div class="flex items-center border border-roman-gold/40 rounded overflow-hidden text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest">
-                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-roman-gold text-black cursor-default">EN</span>
-                        <a href="ru.html" class="px-3 py-1.5 sm:px-4 sm:py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">RU</a>
+                        <a href="index.html" class="px-3 py-1.5 sm:px-4 sm:py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">EN</a>
+                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-roman-gold text-black cursor-default">RU</span>
                     </div>
-                    <a href="#fundraise" class="px-4 sm:px-6 py-2 sm:py-2.5 bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest hover:bg-roman-gold hover:text-black hover:border-roman-gold transition-all rounded">Seed Round</a>
+                    <a href="#fundraise" class="px-4 sm:px-6 py-2 sm:py-2.5 bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest hover:bg-roman-gold hover:text-black hover:border-roman-gold transition-all rounded">Seed раунд</a>
                 </div>
             </div>
         </div>
@@ -245,10 +248,10 @@
         <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
             <div class="mb-6 sm:mb-8 reveal"><span class="text-roman-gold font-roman tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold px-4 py-1.5 border border-roman-gold/30 rounded-full bg-black/50">Veni • Vidi • Vici</span></div>
             <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-roman font-bold mb-4 sm:mb-6 tracking-tight leading-[1.1] reveal delay-100"><span class="text-white drop-shadow-lg">KEKIUS</span><br><span class="text-gold">MARKET</span></h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-body font-normal mb-6 sm:mb-8 max-w-2xl mx-auto text-gray-200 reveal delay-200 tracking-wide px-4">The Market that will return your Roman Empire.</p>
-            <p class="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mb-10 sm:mb-12 reveal delay-200 uppercase tracking-widest leading-relaxed px-4">Built by the creators of 2023's most explosive memecoin ecosystem.</p>
+            <p class="text-lg sm:text-xl md:text-2xl font-body font-normal mb-6 sm:mb-8 max-w-2xl mx-auto text-gray-200 reveal delay-200 tracking-wide px-4">Маркет, который вернёт вашу Римскую Империю.</p>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mb-10 sm:mb-12 reveal delay-200 uppercase tracking-widest leading-relaxed px-4">Создан авторами самой взрывной memecoin-экосистемы 2023 года.</p>
             <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 reveal delay-200 w-full sm:w-auto px-4 sm:px-0">
-                <a href="#moat" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-white/5 backdrop-blur-md border border-white/10 text-white font-roman font-bold uppercase tracking-widest hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-3">Explore Deck <i class="fa-solid fa-arrow-down text-roman-gold"></i></a>
+                <a href="#moat" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-white/5 backdrop-blur-md border border-white/10 text-white font-roman font-bold uppercase tracking-widest hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-3">Изучить предложение <i class="fa-solid fa-arrow-down text-roman-gold"></i></a>
             </div>
         </div>
     </section>
@@ -263,20 +266,20 @@
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div class="reveal text-left">
-                    <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The Moat</span></div>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-6 lg:mb-8 leading-tight">Regular Army<br><span class="text-gray-500 text-xl sm:text-2xl md:text-3xl">vs. Mercenaries</span></h2>
+                    <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Преимущество</span></div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-6 lg:mb-8 leading-tight">Регулярная армия<br><span class="text-gray-500 text-xl sm:text-2xl md:text-3xl">против наёмников</span></h2>
                     <div class="space-y-5 text-base md:text-lg text-gray-300 font-normal leading-relaxed">
-                        <p>Standard crypto projects act like mercenaries: they rely on external marketing, paid traffic, and expensive KOLs. Their Customer Acquisition Cost (CAC) is massive and unsustainable.</p>
-                        <p><strong class="text-white">We deploy our own Legions.</strong> Our business model requires only one thing to succeed: traffic. We generate it entirely in-house, commanding a de facto monopoly on attention within the uncrowded CIS target market.</p>
+                        <p>Обычные крипто-проекты действуют как наёмники: платный трафик, внешний маркетинг, дорогие KOL-ы. Их стоимость привлечения клиента (CAC) огромна и неустойчива.</p>
+                        <p><strong class="text-white">Мы выводим собственные легионы.</strong> Нашей бизнес-модели нужна одна вещь: трафик. Мы генерируем его полностью своими силами, удерживая де-факто монополию на внимание в незанятом рынке СНГ.</p>
                     </div>
                 </div>
                 <div class="reveal delay-100 pitch-card border-roman-gold/20 relative overflow-hidden">
                     <div class="absolute -top-20 -right-20 w-48 h-48 bg-roman-gold rounded-full mix-blend-overlay filter blur-[60px] opacity-10"></div>
-                    <h3 class="font-bold text-xl sm:text-2xl text-white mb-2 relative z-10">Odyssey Ecosystem</h3>
-                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-6 sm:mb-8 border-b border-white/10 pb-4 relative z-10">Main Source of Audience (@doge1)</p>
+                    <h3 class="font-bold text-xl sm:text-2xl text-white mb-2 relative z-10">Империя Одиссея</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-6 sm:mb-8 border-b border-white/10 pb-4 relative z-10">Основной источник аудитории (@doge1)</p>
                     <div class="grid grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8 relative z-10">
-                        <div><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Active Subs</div><div class="font-roman text-3xl sm:text-4xl font-bold text-white"><span class="counter" data-target="200" data-suffix="K">0</span></div></div>
-                        <div><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Engagement Rate</div><div class="font-roman text-3xl sm:text-4xl font-bold text-gold"><span class="counter" data-target="80" data-suffix="%">0</span></div></div>
+                        <div><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Активных подписчиков</div><div class="font-roman text-3xl sm:text-4xl font-bold text-white"><span class="counter" data-target="200" data-suffix="K">0</span></div></div>
+                        <div><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Вовлечённость</div><div class="font-roman text-3xl sm:text-4xl font-bold text-gold"><span class="counter" data-target="80" data-suffix="%">0</span></div></div>
                     </div>
                     <div class="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
                         <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/Avg_Post_Reach_TG_j4fezk.png" alt="Average Post Reach"></div>
@@ -296,21 +299,21 @@
         <div class="noise-overlay"></div>
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-center mb-12 lg:mb-16 reveal">
-                <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The Inefficiency</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Gold Leaking from the Treasury</h2>
-                <p class="text-base sm:text-lg md:text-xl text-gray-300 font-normal max-w-3xl mx-auto leading-relaxed px-2">By operating purely as affiliates on foreign exchanges, we enriched others by giving away our most valuable asset: <strong class="text-white">our users</strong>. The traction is proven, but the value capture is flawed.</p>
+                <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Неэффективность</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Золото утекает из казны</h2>
+                <p class="text-base sm:text-lg md:text-xl text-gray-300 font-normal max-w-3xl mx-auto leading-relaxed px-2">Работая как аффилиаты на чужих биржах, мы обогащали других, отдавая свой главный актив: <strong class="text-white">наших пользователей</strong>. Трекшн доказан, но ценность утекает.</p>
             </div>
             <div class="grid lg:grid-cols-3 gap-6 lg:gap-8">
                 <div class="lg:col-span-1 reveal">
                     <div class="pitch-card h-full flex flex-col justify-center">
-                        <div class="mb-6 sm:mb-8"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Volume Generated</div><div class="text-3xl sm:text-4xl font-roman font-bold text-white"><span class="counter" data-target="8" data-prefix="$" data-suffix="B+">0</span></div></div>
-                        <div class="mb-6 sm:mb-8"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">KYC Users Onboarded</div><div class="text-3xl sm:text-4xl font-roman font-bold text-white"><span class="counter" data-target="13000" data-suffix="+">0</span></div></div>
-                        <div><div class="text-[10px] sm:text-xs text-roman-gold uppercase tracking-widest mb-2">Lost Potential (Referral Fees only)</div><div class="text-3xl sm:text-4xl font-roman font-bold text-gold"><span class="counter" data-target="3" data-prefix=">$" data-suffix="M">0</span></div></div>
+                        <div class="mb-6 sm:mb-8"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Сгенерированный объём</div><div class="text-3xl sm:text-4xl font-roman font-bold text-white"><span class="counter" data-target="8" data-prefix="$" data-suffix="B+">0</span></div></div>
+                        <div class="mb-6 sm:mb-8"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-2">Привлечено KYC-пользователей</div><div class="text-3xl sm:text-4xl font-roman font-bold text-white"><span class="counter" data-target="13000" data-suffix="+">0</span></div></div>
+                        <div><div class="text-[10px] sm:text-xs text-roman-gold uppercase tracking-widest mb-2">Упущенный потенциал (только реф. комиссии)</div><div class="text-3xl sm:text-4xl font-roman font-bold text-gold"><span class="counter" data-target="3" data-prefix=">$" data-suffix="M">0</span></div></div>
                     </div>
                 </div>
                 <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6 reveal delay-100">
-                    <div class="space-y-3"><div class="flex items-center gap-2 mb-2"><div class="w-2 h-2 bg-roman-red rounded-full"></div><span class="text-xs font-bold text-white uppercase tracking-widest">MEXC Data</span></div><div class="proof-frame h-[250px] sm:h-[300px] lg:h-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196334/image_23_qqgstr.png" alt="MEXC Ref Stats" class="h-full object-cover"></div></div>
-                    <div class="space-y-3"><div class="flex items-center gap-2 mb-2"><div class="w-2 h-2 bg-roman-red rounded-full"></div><span class="text-xs font-bold text-white uppercase tracking-widest">Bitget Data</span></div><div class="proof-frame h-[250px] sm:h-[300px] lg:h-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_24_rd4frc.png" alt="Bitget Ref Stats" class="h-full object-cover"></div></div>
+                    <div class="space-y-3"><div class="flex items-center gap-2 mb-2"><div class="w-2 h-2 bg-roman-red rounded-full"></div><span class="text-xs font-bold text-white uppercase tracking-widest">Данные MEXC</span></div><div class="proof-frame h-[250px] sm:h-[300px] lg:h-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196334/image_23_qqgstr.png" alt="MEXC Ref Stats" class="h-full object-cover"></div></div>
+                    <div class="space-y-3"><div class="flex items-center gap-2 mb-2"><div class="w-2 h-2 bg-roman-red rounded-full"></div><span class="text-xs font-bold text-white uppercase tracking-widest">Данные Bitget</span></div><div class="proof-frame h-[250px] sm:h-[300px] lg:h-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_24_rd4frc.png" alt="Bitget Ref Stats" class="h-full object-cover"></div></div>
                 </div>
             </div>
         </div>
@@ -329,34 +332,34 @@
 
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-left mb-12 lg:mb-16 reveal">
-                <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The Solution</span></div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6">Building Our Own Colosseum</h2>
-                <p class="text-base sm:text-lg md:text-xl text-gray-300 font-normal max-w-3xl leading-relaxed">Launching Kekius Market solidifies Odyssey's ecosystem, keeping financial streams completely in-house. We transition from earning a fraction of fees to capturing the full economic value of our territory.</p>
+                <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Решение</span></div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6">Строим свой Колизей</h2>
+                <p class="text-base sm:text-lg md:text-xl text-gray-300 font-normal max-w-3xl leading-relaxed">Запуск Kekius Market укрепляет империю, построенную Одиссеем, замыкая все финансовые потоки внутри. Переход от получения доли комиссий — к захвату полной экономической ценности нашей территории.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                 <div class="pitch-card reveal flex flex-col">
-                    <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/10 pb-4">Architecture Backbone</h3>
+                    <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/10 pb-4">Архитектура</h3>
                     <ul class="space-y-6 sm:space-y-8 flex-grow">
-                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-shield-halved text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">ChainUp Infrastructure</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Private-label solution built collaboratively. Sensitive components (Custody, Security, Backend) rely on proven decade-old tech.</span></div></li>
-                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-water text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">Deep Liquidity (BitWind)</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Market Making and liquidity for Top-CMC assets fully provided and secured.</span></div></li>
-                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-layer-group text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">Full-Suite Features</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Spot, Futures, Staking, Copy-trading, Launchpad, and P2P trading available out of the box.</span></div></li>
+                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-shield-halved text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">Инфраструктура ChainUp</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Private-label решение, построенное совместно. Критичные компоненты (Custody, Security, Backend) используют проверенные технологии с 10+ летней историей.</span></div></li>
+                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-water text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">Глубокая ликвидность (BitWind)</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Маркет-мейкинг и ликвидность для Top-CMC активов полностью обеспечены и защищены.</span></div></li>
+                        <li class="flex items-start gap-4"><div class="mt-1 flex-shrink-0 text-roman-gold/50"><i class="fa-solid fa-layer-group text-lg sm:text-xl"></i></div><div><strong class="text-white block mb-1 text-sm sm:text-base">Полный набор функций</strong><span class="text-xs sm:text-sm text-gray-400 leading-relaxed block">Спот, Фьючерсы, Стейкинг, Копи-трейдинг, Лаунчпад и P2P-торговля доступны из коробки.</span></div></li>
                     </ul>
                 </div>
                 <div class="pitch-card reveal delay-100 flex flex-col border-roman-gold/20">
-                    <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">Taxes From Our Territory</h3>
-                    <p class="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8 border-b border-white/10 pb-4">Owning the platform unlocks massive extra revenue streams:</p>
+                    <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">Налоги с нашей территории</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8 border-b border-white/10 pb-4">Владение платформой открывает мощные дополнительные источники дохода:</p>
                     <div class="grid grid-cols-2 gap-y-4 sm:gap-y-6 gap-x-4 mb-8 sm:mb-10 flex-grow">
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Listings</span></div>
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Launchpads</span></div>
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Liquidations</span></div>
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Copy-trading fees</span></div>
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Staking Liquidity</span></div>
-                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Market-making</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Листинги</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Лаунчпады</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Ликвидации</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Комиссии копи-трейдинга</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Ликвидность стейкинга</span></div>
+                        <div class="flex items-center gap-3"><div class="w-1 h-1 bg-roman-gold flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-200">Маркет-мейкинг</span></div>
                     </div>
                     <div class="bg-black/40 border border-roman-gold/30 p-4 sm:p-6 rounded-xl text-center shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-                        <div class="text-[10px] sm:text-xs text-roman-gold uppercase tracking-widest mb-2 font-bold">Projected Year 1 Revenue</div>
+                        <div class="text-[10px] sm:text-xs text-roman-gold uppercase tracking-widest mb-2 font-bold">Прогнозируемая выручка за год 1</div>
                         <div class="text-3xl sm:text-4xl md:text-5xl font-roman font-bold text-white mb-2 drop-shadow-md"><span class="counter" data-target="16000000" data-prefix="$">0</span></div>
-                        <div class="text-[10px] sm:text-xs text-gray-400">Assuming 70,000 active users (per financial model)</div>
+                        <div class="text-[10px] sm:text-xs text-gray-400">При 70 000 активных пользователей (по фин. модели)</div>
                     </div>
                 </div>
             </div>
@@ -372,40 +375,40 @@
         <div class="noise-overlay"></div>
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-center mb-12 lg:mb-16 reveal">
-                <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Proof of Execution</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+                <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Доказательство реализации</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Veni, Vidi, Vici</h2>
-                <p class="text-base sm:text-lg text-gray-400 font-normal max-w-2xl mx-auto px-2">We don't just build concepts; we launch empires. We have a proven track record of turning attention into hard capitalization and real-world impact.</p>
+                <p class="text-base sm:text-lg text-gray-400 font-normal max-w-2xl mx-auto px-2">Мы не строим концепты — мы запускаем империи. За нами доказанный трек-рекорд превращения внимания в реальную капитализацию.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="pitch-card p-6 sm:p-8 reveal flex flex-col">
                     <h3 class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">$GRIMACE</h3>
-                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Conquering the Market</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Завоевание рынка</p>
                     <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-300 flex-grow mb-6">
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Audience growth: 8K ➔ 900K TG subs.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Cap growth: <strong>$100K ➔ $100M</strong> (1yr uptrend).</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Beat ETH by daily vol. on MEXC.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Community earned <strong>$5M+</strong> during MEXC short capitulation.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Рост аудитории: 8K ➔ 900K подписчиков TG.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Рост капитализации: <strong>$100K ➔ $100M</strong> (1 год в аптренде).</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Обошли ETH по дневному объёму на MEXC.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Сообщество заработало <strong>$5M+</strong> на капитуляции шортистов MEXC.</span></li>
                     </ul>
                     <div class="proof-frame mt-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196335/image_46_eybivo.png" alt="MEXC Capitulation"></div>
                 </div>
                 <div class="pitch-card p-6 sm:p-8 reveal delay-100 flex flex-col">
                     <h3 class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">$SEX</h3>
-                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Repeating Success</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Повторение успеха</p>
                     <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-300 flex-grow mb-6">
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Second token launched by Odyssey.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Cap growth: <strong>$780K ➔ $480M</strong> in just 6 months.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>8,000 peak concurrent viewers on a livestream.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Второй токен от Одиссея.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Рост капитализации: <strong>$780K ➔ $480M</strong> за 6 месяцев.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>8 000 зрителей на пике на стриме.</span></li>
                     </ul>
                     <div class="proof-frame mt-auto"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_46_1_knyspc.png" alt="$SEX Post"></div>
                 </div>
                 <div class="pitch-card p-6 sm:p-8 reveal delay-200 flex flex-col md:col-span-2 lg:col-span-1">
                     <h3 class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">G.O.D.</h3>
-                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Soft Power of the Empire</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-4 sm:mb-6 border-b border-white/10 pb-4">Мягкая сила империи</p>
                     <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-300 flex-grow mb-6">
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Grimace Odyssey Donations. Self-funded.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>100M+ total views across channels.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span><strong>$1M+</strong> donated and realized.</span></li>
-                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Status: <strong>№1 charity fund in CIS</strong> within 4 months.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>Grimace Odyssey Donations. Самофинансирование.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span>100M+ суммарных просмотров по каналам.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-white mt-1.5 flex-shrink-0"></div><span><strong>$1M+</strong> пожертвовано и реализовано.</span></li>
+                        <li class="flex items-start gap-3"><div class="w-1 h-1 bg-roman-gold mt-1.5 flex-shrink-0"></div><span class="text-white">Статус: <strong>№1 благотворительный фонд в СНГ</strong> за 4 месяца.</span></li>
                     </ul>
                     <div class="grid grid-cols-2 gap-2 mt-auto">
                         <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_17_nop3wi.png" alt="TG Stats"></div>
@@ -428,10 +431,10 @@
             <div class="pitch-card flex flex-col md:flex-row items-center gap-8 sm:gap-10 lg:gap-12 border-roman-gold/10 bg-transparent shadow-none backdrop-blur-none">
                 <div class="md:w-1/2 reveal w-full"><div class="proof-frame p-1 bg-white/5 border-white/10"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196334/image_48_zxavhk.png" alt="Elon Musk Kekius Maximus" class="rounded"></div></div>
                 <div class="md:w-1/2 reveal delay-100 text-left">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-roman font-bold mb-4 text-white">Under the Banner of <br><span class="text-gold">Kekius Maximus</span></h2>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-roman font-bold mb-4 text-white">Под знаменем <br><span class="text-gold">Kekius Maximus</span></h2>
                     <div class="space-y-4 text-sm sm:text-base text-gray-400 font-normal leading-relaxed">
-                        <p>We believe the Kekius Maximus meme, inspired by Elon Musk, is destined to command the crypto industry's attention for years to come.</p>
-                        <p>We are not simply adopting an image. As the foremost ambassadors of Kekius, we are forging the largest and most fiercely dedicated community around this symbol worldwide. It is the banner of our expansion.</p>
+                        <p>Мем Kekius Maximus, вдохновлённый Илоном Маском, будет удерживать внимание крипто-индустрии на годы вперёд.</p>
+                        <p>Мы не просто используем образ. Как главные амбассадоры Kekius, мы формируем крупнейшее и самое преданное сообщество вокруг этого символа в мире. Это знамя нашей экспансии.</p>
                     </div>
                 </div>
             </div>
@@ -452,29 +455,29 @@
         <div class="container mx-auto px-4 max-w-5xl">
             <div class="text-center mb-12 lg:mb-16 reveal">
                 <div class="flex items-center justify-center gap-4 mb-6"><div class="w-12 h-[1px] bg-roman-gold/50"></div><i class="fa-solid fa-crown text-roman-gold text-sm"></i><div class="w-12 h-[1px] bg-roman-gold/50"></div></div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6 uppercase tracking-wider">Enter the Imperial Senate</h2>
-                <p class="text-gray-400 font-roman tracking-widest text-xs sm:text-sm">Seed Round</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6 uppercase tracking-wider">Войди в Имперский Сенат</h2>
+                <p class="text-gray-400 font-roman tracking-widest text-xs sm:text-sm">Seed раунд</p>
             </div>
             <div class="pitch-card p-6 sm:p-10 md:p-14 reveal delay-100 border-white/10 relative overflow-hidden">
                 <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16 pb-10 sm:pb-12 border-b border-white/10">
-                    <div class="text-center sm:text-left"><div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Raising (Equity)</div><div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="4" data-prefix="$" data-suffix="M">0</span></div></div>
-                    <div class="text-center sm:text-right"><div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Valuation</div><div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="40" data-prefix="$" data-suffix="M">0</span></div><div class="text-[10px] sm:text-xs text-roman-gold mt-3 uppercase tracking-widest">Series A planned for 2026-2027 @ $200M</div></div>
+                    <div class="text-center sm:text-left"><div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Привлекаем (Equity)</div><div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="4" data-prefix="$" data-suffix="M">0</span></div></div>
+                    <div class="text-center sm:text-right"><div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Оценка</div><div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="40" data-prefix="$" data-suffix="M">0</span></div><div class="text-[10px] sm:text-xs text-roman-gold mt-3 uppercase tracking-widest">Series A запланирован на 2026-2027 @ $200M</div></div>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                     <div>
-                        <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Path to Profitability</h3>
+                        <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Путь к прибыльности</h3>
                         <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                             <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q1</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$328K</span></div>
                             <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q2</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$2.5M</span></div>
-                            <div class="flex justify-between items-center p-4 sm:p-5 bg-roman-gold/10 rounded border border-roman-gold/30"><span class="text-gold text-sm sm:text-base font-bold uppercase tracking-wider">Year 1</span><span class="font-roman text-2xl sm:text-3xl text-gold font-bold">$13.03M</span></div>
+                            <div class="flex justify-between items-center p-4 sm:p-5 bg-roman-gold/10 rounded border border-roman-gold/30"><span class="text-gold text-sm sm:text-base font-bold uppercase tracking-wider">Год 1</span><span class="font-roman text-2xl sm:text-3xl text-gold font-bold">$13.03M</span></div>
                         </div>
                         <div class="flex items-center justify-between p-4 sm:p-6 bg-black rounded-lg border border-white/10 gap-4">
-                            <div class="min-w-0"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-1">Projected ROI</div><div class="text-[10px] sm:text-sm text-gray-400">($1.303M profit in Y1 at 10% stake)</div></div>
+                            <div class="min-w-0"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-1">Прогноз ROI</div><div class="text-[10px] sm:text-sm text-gray-400">($1.303M прибыли за год 1 при 10% доле)</div></div>
                             <div class="text-3xl sm:text-4xl font-roman font-black text-white flex-shrink-0 tabular-nums" style="min-width:7ch;text-align:right;"><span class="counter" data-target="65.15" data-suffix="%">0</span></div>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Use of Proceeds</h3>
+                        <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Использование средств</h3>
                         <div class="w-full h-2 flex rounded bg-white/5 mb-6 sm:mb-8">
                             <div class="bg-white progress-fill transition-all duration-1000 ease-out rounded-l" style="width:0%" data-width="28%"></div>
                             <div class="bg-gray-400 progress-fill transition-all duration-1000 ease-out delay-100" style="width:0%" data-width="28%"></div>
@@ -483,17 +486,17 @@
                             <div class="bg-[#111] progress-fill transition-all duration-1000 ease-out delay-400 rounded-r" style="width:0%" data-width="11%"></div>
                         </div>
                         <div class="space-y-3 sm:space-y-4">
-                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-white rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Salaries</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
-                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-400 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Marketing</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
-                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Maintenance</span></div><span class="font-roman font-bold text-white text-sm">19%</span></div>
-                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-roman-border rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Legal</span></div><span class="font-roman font-bold text-white text-sm">14%</span></div>
-                            <div class="flex justify-between items-center pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-[#111] border border-white/20 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Other + Buffer</span></div><span class="font-roman font-bold text-white text-sm">11%</span></div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-white rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Зарплаты</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-400 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Маркетинг</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Обслуживание</span></div><span class="font-roman font-bold text-white text-sm">19%</span></div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-roman-border rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Юридические</span></div><span class="font-roman font-bold text-white text-sm">14%</span></div>
+                            <div class="flex justify-between items-center pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-[#111] border border-white/20 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Прочее + Резерв</span></div><span class="font-roman font-bold text-white text-sm">11%</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-10 sm:mt-12 text-center">
-                    <a href="https://t.me/basharxd" target="_blank" rel="noopener noreferrer" class="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-roman font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-gray-200 transition-colors rounded shadow-[0_0_20px_rgba(255,255,255,0.2)]">Request Full Deck</a>
-                    <p class="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-widest mt-4">Telegram: <span class="text-roman-gold font-bold">@basharxd</span></p>
+                    <a href="https://t.me/basharxd" target="_blank" rel="noopener noreferrer" class="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-roman font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-gray-200 transition-colors rounded shadow-[0_0_20px_rgba(255,255,255,0.2)]">Запросить полную презентацию</a>
+                    <p class="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-widest mt-4">Телеграм: <span class="text-roman-gold font-bold">@basharxd</span></p>
                 </div>
             </div>
         </div>
@@ -504,13 +507,13 @@
         <div class="container mx-auto px-4 max-w-6xl text-center">
             <div class="text-white/5 font-roman font-black text-5xl sm:text-7xl md:text-9xl tracking-[0.3em] mb-8 sm:mb-12 select-none pointer-events-none">S P Q R</div>
             <div class="flex items-center justify-center gap-3 mb-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1773759947/Screenshot_1_rm37qj.jpg" alt="Kekius Logo" class="w-6 h-6 rounded-full border border-white/20 opacity-80 grayscale"><span class="font-roman text-gray-500 uppercase tracking-widest text-xs font-bold">Kekius Market</span></div>
-            <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-3">Odyssey — Founder & CEO</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-3">Одиссей — основатель и CEO</p>
             <div class="flex items-center justify-center gap-6 mb-8">
                 <a href="https://t.me/doge1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-telegram text-base"></i>@doge1</a>
                 <a href="https://x.com/grimaceodysseus" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-x-twitter text-base"></i>@grimaceodysseus</a>
             </div>
-            <p class="text-[10px] text-gray-600 font-normal max-w-3xl mx-auto mb-6 leading-relaxed px-4">Disclaimer: The information provided on this website does not constitute investment advice. Investment in early-stage startups involves high risk (DYOR). Kekius Market reserves the right to modify product specifications as development progresses.</p>
-            <div class="text-gray-700 text-[10px] font-roman uppercase tracking-widest">&copy; 2026 Kekius Market. All Rights Reserved.</div>
+            <p class="text-[10px] text-gray-600 font-normal max-w-3xl mx-auto mb-6 leading-relaxed px-4">Дисклеймер: Информация на этом сайте не является инвестиционной рекомендацией. Инвестирование в стартапы ранних стадий связано с высоким риском (DYOR). Kekius Market оставляет за собой право изменять спецификации продукта по мере развития.</p>
+            <div class="text-gray-700 text-[10px] font-roman uppercase tracking-widest">&copy; 2026 Kekius Market. Все права защищены.</div>
         </div>
     </footer>
 
