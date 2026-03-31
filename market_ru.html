@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEKIUS MARKET | Социальная Арена Прогнозов</title>
+    <meta property="og:title" content="KEKIUS MARKET | Социальная Арена Прогнозов">
+    <meta property="og:description" content="Где сообщества соревнуются, инфлюенсеры монетизируют свою экспертизу, а каждый прогноз — это социальное событие. Создано для СНГ.">
+    <meta property="og:image" content="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774225815/00-4_hxkvqp.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0d0417">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roman: { base: '#0d0417', surface: '#1a0b2e', border: '#3d265c', gold: '#d4af37', goldlight: '#f5d675', red: '#8b0000' }
+                    },
+                    fontFamily: { roman: ['Cinzel','serif'], body: ['Montserrat','sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background:#0d0417; color:#fdfbf7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        .text-gold { background:linear-gradient(to right,#d4af37,#fcf6ba,#b38728); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .bg-hero-imperial {
+            background-color:#0d0417;
+            background-image: linear-gradient(to bottom, rgba(13,4,23,0.2) 0%, rgba(13,4,23,0.7) 70%, #0d0417 100%),
+                url('https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774212543/00-2_nzwua1.jpg');
+            background-size:cover; background-position:center 20%; background-attachment:fixed;
+        }
+        @media(max-width:768px){ .bg-hero-imperial{background-attachment:scroll;} }
+        .orb-section { position:relative; overflow:hidden; }
+        .orb-layer { position:absolute; inset:0; pointer-events:none; z-index:0; }
+        .orb { position:absolute; border-radius:50%; will-change:transform,opacity; }
+        .orb--gold { background:radial-gradient(circle,rgba(212,175,55,0.25),rgba(212,175,55,0) 70%); }
+        .orb--purple { background:radial-gradient(circle,rgba(61,26,110,0.3),rgba(61,26,110,0) 70%); }
+        .orb--warm { background:radial-gradient(circle,rgba(180,100,30,0.18),rgba(180,100,30,0) 70%); }
+        .orb--arena { background:radial-gradient(circle,rgba(139,0,0,0.15),rgba(139,0,0,0) 70%); }
+        @keyframes orbFloat1{0%{transform:translate(0,0)}25%{transform:translate(50px,-30px)}50%{transform:translate(-20px,40px)}75%{transform:translate(30px,15px)}100%{transform:translate(0,0)}}
+        @keyframes orbFloat2{0%{transform:translate(0,0)}25%{transform:translate(-40px,25px)}50%{transform:translate(35px,-35px)}75%{transform:translate(-15px,-20px)}100%{transform:translate(0,0)}}
+        @keyframes orbFloat3{0%{transform:translate(0,0)}33%{transform:translate(45px,30px)}66%{transform:translate(-30px,-25px)}100%{transform:translate(0,0)}}
+        @keyframes orbPulse{0%,100%{opacity:var(--pulse-min,0.12)}50%{opacity:var(--pulse-max,0.35)}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        @keyframes pulse-ring{0%{transform:scale(0.8);opacity:0.6}100%{transform:scale(1.6);opacity:0}}
+        @keyframes dash{to{stroke-dashoffset:0}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .noise-overlay { position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0.03;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat:repeat; background-size:256px; }
+        .orb-section>*:not(.orb-layer):not(.noise-overlay):not(.column-decor){position:relative;z-index:2;}
+        .column-decor{position:absolute;pointer-events:none;z-index:1;bottom:0;}
+        .column-decor svg{display:block;height:100%;width:auto;}
+        .column-decor--left{left:0;} .column-decor--right{right:0;}
+        .column-decor--right svg{transform:scaleX(-1);}
+        .bg-roman-pattern { background-color:#1a0b2e; background-image:linear-gradient(rgba(26,11,46,0.85),rgba(13,4,23,0.95)),url('https://www.transparenttextures.com/patterns/wall-4-light.png'); }
+        .pitch-card { background:rgba(26,11,46,0.4);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:1.5rem;transition:border-color 0.3s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); }
+        @media(min-width:768px){.pitch-card{padding:2.5rem;}} @media(min-width:1024px){.pitch-card{padding:3rem;}}
+        .pitch-card:hover{border-color:rgba(212,175,55,0.2);}
+        .proof-frame { background:#000;border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);position:relative; }
+        .proof-frame::after { content:'\f00e';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:1.5rem;opacity:0;transition:opacity 0.3s ease;pointer-events:none;text-shadow:0 2px 10px rgba(0,0,0,0.8); }
+        .proof-frame:hover::after{opacity:0.8;}
+        .proof-frame img{width:100%;height:auto;display:block;object-fit:cover;cursor:zoom-in;transition:transform 0.4s ease,filter 0.4s ease;}
+        .proof-frame:hover img{transform:scale(1.03);filter:brightness(0.6);}
+        .pillar-icon { width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative; }
+        .pillar-icon::before { content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(212,175,55,0.3);animation:pulse-ring 3s ease-in-out infinite; }
+        .feature-grid-item { position:relative;padding:2rem;border-radius:12px;background:rgba(26,11,46,0.3);border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease; }
+        .feature-grid-item:hover { border-color:rgba(212,175,55,0.2);transform:translateY(-4px); }
+        .timeline-line { position:absolute;left:24px;top:60px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(212,175,55,0.4),rgba(212,175,55,0)); }
+        .timeline-dot { width:12px;height:12px;border-radius:50%;border:2px solid #d4af37;background:#0d0417;position:relative;z-index:2;flex-shrink:0; }
+        .timeline-dot--active { background:#d4af37; }
+        ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:#0d0417;} ::-webkit-scrollbar-thumb{background:#3d265c;border-radius:3px;} ::-webkit-scrollbar-thumb:hover{background:#d4af37;}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+        .reveal.active{opacity:1;transform:translateY(0);}
+        .delay-100{transition-delay:0.1s;} .delay-200{transition-delay:0.2s;} .delay-300{transition-delay:0.3s;}
+        .section-py{padding-top:4rem;padding-bottom:4rem;}
+        @media(min-width:641px){.section-py{padding-top:5rem;padding-bottom:5rem;}}
+        @media(min-width:1024px){.section-py{padding-top:6rem;padding-bottom:6rem;}}
+        @media(max-width:640px){.orb{filter:blur(60px)!important;}.proof-frame img{min-height:120px;}}
+        /* SVG illustration animations */
+        .illu-squad-orbit { animation: orbFloat1 8s ease-in-out infinite; }
+        .illu-float { animation: float 4s ease-in-out infinite; }
+        .illu-pulse { animation: orbPulse 3s ease-in-out infinite; --pulse-min:0.5; --pulse-max:1; }
+        .market-bar { transform-origin: bottom; animation: growBar 1.5s ease-out forwards; }
+        @keyframes growBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+        .stat-highlight { background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05)); border:1px solid rgba(212,175,55,0.2); border-radius:12px; padding:1.5rem; text-align:center; }
+    </style>
+</head>
+<body class="font-body selection:bg-roman-gold selection:text-roman-base">
+<!-- HIDDEN SVG DEFS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<defs>
+    <symbol id="roman-column" viewBox="0 0 120 700">
+        <linearGradient id="col-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="currentColor" stop-opacity="0"/><stop offset="20%" stop-color="currentColor" stop-opacity="0.4"/><stop offset="100%" stop-color="currentColor" stop-opacity="1"/></linearGradient>
+        <rect x="0" y="20" width="120" height="10" rx="1" fill="url(#col-fade)"/><rect x="5" y="30" width="110" height="6" rx="1" fill="url(#col-fade)" opacity="0.7"/>
+        <rect x="10" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="22" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="34" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="46" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="58" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="70" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="82" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="94" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="106" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/>
+        <rect x="18" y="44" width="84" height="7" rx="2" fill="url(#col-fade)"/>
+        <path d="M22 55 C12 55,8 62,14 68 C18 72,26 70,26 65 C26 61,20 60,20 63" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+        <path d="M98 55 C108 55,112 62,106 68 C102 72,94 70,94 65 C94 61,100 60,100 63" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+        <path d="M26 53 Q60 62 94 53 L92 58 Q60 66 28 58 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="32" y="70" width="56" height="5" rx="2" fill="url(#col-fade)" opacity="0.6"/>
+        <rect x="34" y="75" width="52" height="560" rx="3" fill="url(#col-fade)" opacity="0.6"/>
+        <line x1="40" y1="80" x2="40" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="46" y1="80" x2="46" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="52" y1="80" x2="52" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="58" y1="80" x2="58" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="64" y1="80" x2="64" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="70" y1="80" x2="70" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="76" y1="80" x2="76" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="82" y1="80" x2="82" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+        <rect x="44" y="80" width="4" height="550" rx="2" fill="currentColor" opacity="0.05"/>
+        <path d="M28 635 Q60 645 92 635 L94 642 Q60 652 26 642 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="30" y="643" width="60" height="6" rx="1" fill="url(#col-fade)" opacity="0.4"/>
+        <path d="M24 649 Q60 660 96 649 L98 658 Q60 668 22 658 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="16" y="660" width="88" height="16" rx="2" fill="url(#col-fade)" opacity="0.9"/>
+        <rect x="8" y="676" width="104" height="24" rx="3" fill="url(#col-fade)"/>
+    </symbol>
+</defs>
+</svg>
+
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-roman-gold to-transparent fixed top-0 z-50 opacity-50"></div>
+
+<!-- HEADER -->
+<header class="fixed w-full top-0 z-40 transition-all duration-300 border-b border-transparent bg-roman-base/0 backdrop-blur-sm" id="navbar">
+    <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div class="flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 sm:gap-4 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 overflow-hidden group-hover:border-roman-gold/50 transition-colors flex-shrink-0">
+                    <img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1773759947/Screenshot_1_rm37qj.jpg" alt="Kekius Logo" class="w-full h-full object-cover">
+                </div>
+                <div class="font-roman font-bold text-base sm:text-lg tracking-[0.2em] text-white uppercase hidden sm:block">Kekius</div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold">
+                <a href="#opportunity" class="text-gray-400 hover:text-white transition-colors">Возможность</a>
+                <a href="#vision" class="text-gray-400 hover:text-white transition-colors">Видение</a>
+                <a href="#product" class="text-gray-400 hover:text-white transition-colors">Продукт</a>
+                <a href="#proof" class="text-gray-400 hover:text-white transition-colors">Трекшн</a>
+                <a href="#fundraise" class="text-gray-400 hover:text-white transition-colors">Инвестиции</a>
+            </nav>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="flex items-center border border-roman-gold/40 rounded overflow-hidden text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest">
+                    <a href="market.html" class="px-3 py-1.5 sm:px-4 sm:py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">EN</a>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-roman-gold text-black cursor-default">RU</span>
+                </div>
+                <a href="#fundraise" class="px-4 sm:px-6 py-2 sm:py-2.5 bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest hover:bg-roman-gold hover:text-black hover:border-roman-gold transition-all rounded">Seed-раунд</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- 0. HERO — Lead with the vision, not the past                 -->
+<!-- ============================================================ -->
+<section class="relative min-h-screen flex items-center pt-24 pb-20 bg-hero-imperial">
+    <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
+        <div class="mb-6 sm:mb-8 reveal">
+            <span class="text-roman-gold font-roman tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold px-4 py-1.5 border border-roman-gold/30 rounded-full bg-black/50">
+                Рынок $325B &bull; Нет конкурентов в СНГ &bull; Social-First
+            </span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-roman font-bold mb-4 sm:mb-6 tracking-tight leading-[1.1] reveal delay-100">
+            <span class="text-white drop-shadow-lg">СОЦИАЛЬНАЯ</span><br>
+            <span class="text-gold">АРЕНА ПРОГНОЗОВ</span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl font-body font-normal mb-3 sm:mb-4 max-w-3xl mx-auto text-gray-200 reveal delay-200 tracking-wide px-4">
+            Где сообщества соревнуются, инфлюенсеры монетизируют свою экспертизу, а каждый прогноз — социальное событие.
+        </p>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto mb-10 sm:mb-12 reveal delay-200 uppercase tracking-widest leading-relaxed px-4">
+            Создано командой, которая превратила $100K в $100M. Трижды.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 reveal delay-300 w-full sm:w-auto px-4 sm:px-0">
+            <a href="#vision" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-roman-gold text-black font-roman font-bold uppercase tracking-widest hover:bg-roman-goldlight transition-all text-sm flex items-center justify-center gap-3">
+                Наше видение <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#fundraise" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-white/5 backdrop-blur-md border border-white/10 text-white font-roman font-bold uppercase tracking-widest hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-3">
+                Seed-раунд <i class="fa-solid fa-crown text-roman-gold text-xs"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Scroll indicator — anchored to section bottom -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 reveal delay-300">
+        <div class="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center pt-2">
+            <div class="w-1 h-2 bg-roman-gold rounded-full animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 1. THE OPPORTUNITY — Market size + gap                       -->
+<!-- ============================================================ -->
+<section id="opportunity" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:420px;height:420px;top:-15%;left:-8%;filter:blur(90px);animation:orbFloat1 22s ease-in-out infinite,orbPulse 9s ease-in-out infinite;--pulse-min:0.15;--pulse-max:0.35;"></div>
+        <div class="orb orb--purple" style="width:350px;height:350px;bottom:-10%;right:-5%;filter:blur(100px);animation:orbFloat2 28s ease-in-out infinite,orbPulse 11s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.28;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Возможность</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Рынок на $1 триллион<br><span class="text-gold">без игрока в СНГ</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-2">Рынок прогнозов вырос в 4 раза до $63.5B в 2025. Прогноз: $325B+ в 2026 и $1T+ к 2030. Два игрока контролируют 97.5% рынка. Ни один не говорит по-русски. Ни один не видит СНГ.</p>
+        </div>
+
+        <!-- Market Growth SVG Chart -->
+        <div class="reveal mb-12 lg:mb-16">
+            <div class="pitch-card p-6 sm:p-8 md:p-10 border-roman-gold/10">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-roman font-bold text-white text-sm sm:text-base uppercase tracking-widest">Рост объёма рынка прогнозов</h3>
+                    <span class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Источник: данные индустрии 2024-2030</span>
+                </div>
+                <svg viewBox="0 0 800 300" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.9"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0.3"/></linearGradient>
+                        <linearGradient id="barGradFuture" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.5"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0.15"/></linearGradient>
+                    </defs>
+                    <!-- Grid lines -->
+                    <line x1="80" y1="40" x2="780" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="100" x2="780" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="160" x2="780" y2="160" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="220" x2="780" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <!-- Y-axis labels -->
+                    <text x="70" y="44" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$1T</text>
+                    <text x="70" y="104" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$750B</text>
+                    <text x="70" y="164" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$500B</text>
+                    <text x="70" y="224" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$250B</text>
+                    <!-- Bars -->
+                    <rect class="market-bar" x="120" y="260" width="60" height="10" rx="2" fill="url(#barGrad)" style="animation-delay:0.2s"><title>2024: ~$16B</title></rect>
+                    <rect class="market-bar" x="220" y="245" width="60" height="25" rx="2" fill="url(#barGrad)" style="animation-delay:0.4s"><title>2025: $63.5B</title></rect>
+                    <rect class="market-bar" x="320" y="200" width="60" height="70" rx="2" fill="url(#barGrad)" style="animation-delay:0.6s"><title>2026: $325B</title></rect>
+                    <rect class="market-bar" x="420" y="155" width="60" height="115" rx="2" fill="url(#barGradFuture)" style="animation-delay:0.8s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2027: ~$500B</title></rect>
+                    <rect class="market-bar" x="520" y="110" width="60" height="160" rx="2" fill="url(#barGradFuture)" style="animation-delay:1s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2028: ~$680B</title></rect>
+                    <rect class="market-bar" x="620" y="65" width="60" height="205" rx="2" fill="url(#barGradFuture)" style="animation-delay:1.2s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2029-2030: $1T+</title></rect>
+                    <!-- Bar labels -->
+                    <text x="150" y="256" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">$16B</text>
+                    <text x="250" y="241" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">$64B</text>
+                    <text x="350" y="196" fill="white" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="700">$325B</text>
+                    <text x="450" y="151" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle" font-family="Montserrat">$500B</text>
+                    <text x="550" y="106" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle" font-family="Montserrat">$680B</text>
+                    <text x="650" y="58" fill="#d4af37" font-size="12" text-anchor="middle" font-family="Cinzel" font-weight="700">$1T+</text>
+                    <!-- X-axis labels -->
+                    <text x="150" y="285" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="middle" font-family="Montserrat">2024</text>
+                    <text x="250" y="285" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="middle" font-family="Montserrat">2025</text>
+                    <text x="350" y="285" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="700">2026</text>
+                    <text x="450" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2027</text>
+                    <text x="550" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2028</text>
+                    <text x="650" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2030</text>
+                    <!-- Arrow annotation -->
+                    <text x="350" y="182" fill="#d4af37" font-size="9" text-anchor="middle" font-family="Montserrat" font-weight="600" opacity="0.8">МЫ ЗДЕСЬ</text>
+                    <line x1="350" y1="184" x2="350" y2="196" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Key stats -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 reveal delay-100">
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">97.5%</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">Контролируют 2 игрока</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-gold mb-1">0</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">Конкурентов в СНГ</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">5x</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">Рост рынка г/г</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">$11B</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">Оценка лидера</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. THE PROBLEM — Why current markets fail socially           -->
+<!-- ============================================================ -->
+<section class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--warm" style="width:500px;height:500px;top:10%;left:25%;filter:blur(110px);animation:orbFloat3 30s ease-in-out infinite,orbPulse 10s ease-in-out infinite;--pulse-min:0.12;--pulse-max:0.3;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Проблема</span></div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-6 leading-tight">Рынки прогнозов —<br><span class="text-gray-500">одинокие места</span></h2>
+                <div class="space-y-5 text-base md:text-lg text-gray-300 leading-relaxed">
+                    <p>Polymarket и Kalshi создали торговые платформы. Клинические. Индивидуальные. Для квантов, сидящих в одиночестве за экранами.</p>
+                    <p>Но реальная энергия в крипте всегда была <strong class="text-white">социальной</strong>. Сообщества. Telegram-чаты. Коллы инфлюенсеров. Групповая убеждённость. Социальный слой полностью отсутствует на рынках прогнозов.</p>
+                    <p>Тем временем капитал перетекает <strong class="text-white">из мемкоинов</strong> в платформы прогнозов. На Solana рынки прогнозов выросли с &lt;10% до 57% от объёма мемкоинов в 2025. Спрос очевиден. Продукта нет.</p>
+                </div>
+            </div>
+            <div class="reveal delay-100">
+                <!-- SVG: Lonely trader vs. Community arena illustration -->
+                <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                    <defs>
+                        <linearGradient id="arenaGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.2"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0"/></linearGradient>
+                    </defs>
+                    <!-- Left side: lonely -->
+                    <text x="120" y="30" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="600" letter-spacing="3">СЕЙЧАС</text>
+                    <rect x="50" y="50" width="140" height="160" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                    <circle cx="120" cy="120" r="20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                    <circle cx="120" cy="112" r="7" fill="rgba(255,255,255,0.2)"/>
+                    <path d="M108 130 Q120 140 132 130" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                    <text x="120" y="170" fill="rgba(255,255,255,0.25)" font-size="10" text-anchor="middle" font-family="Montserrat">Одинокий трейдер</text>
+                    <text x="120" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">Нет сообщества</text>
+                    <text x="120" y="198" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">Нет соц. подтверждения</text>
+                    <!-- Arrow -->
+                    <path d="M210 130 L270 130" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                    <polygon points="270,125 280,130 270,135" fill="#d4af37" opacity="0.5"/>
+                    <!-- Right side: arena -->
+                    <text x="380" y="30" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Cinzel" font-weight="700" letter-spacing="3">KEKIUS MARKET</text>
+                    <ellipse cx="380" cy="180" rx="100" ry="60" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5"/>
+                    <ellipse cx="380" cy="180" rx="70" ry="40" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.15)" stroke-width="1"/>
+                    <!-- People in arena -->
+                    <g opacity="0.8">
+                        <circle cx="350" cy="165" r="8" fill="rgba(212,175,55,0.3)"/><circle cx="350" cy="161" r="3" fill="rgba(212,175,55,0.5)"/>
+                        <circle cx="410" cy="165" r="8" fill="rgba(212,175,55,0.3)"/><circle cx="410" cy="161" r="3" fill="rgba(212,175,55,0.5)"/>
+                        <circle cx="380" cy="155" r="9" fill="rgba(212,175,55,0.4)"/><circle cx="380" cy="150" r="3.5" fill="rgba(212,175,55,0.6)"/>
+                        <circle cx="340" cy="190" r="6" fill="rgba(139,0,0,0.4)"/><circle cx="340" cy="187" r="2.5" fill="rgba(139,0,0,0.6)"/>
+                        <circle cx="420" cy="190" r="6" fill="rgba(139,0,0,0.4)"/><circle cx="420" cy="187" r="2.5" fill="rgba(139,0,0,0.6)"/>
+                        <circle cx="365" cy="195" r="6" fill="rgba(255,255,255,0.15)"/><circle cx="365" cy="192" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                        <circle cx="395" cy="195" r="6" fill="rgba(255,255,255,0.15)"/><circle cx="395" cy="192" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                    </g>
+                    <!-- Labels -->
+                    <text x="380" y="260" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">СКВАДЫ СОРЕВНУЮТСЯ</text>
+                    <text x="380" y="275" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Montserrat">Копитрейдинг | Рейтинги | Баттлы</text>
+                    <!-- Bottom comparison -->
+                    <rect x="30" y="310" width="200" height="60" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+                    <text x="130" y="335" fill="rgba(255,255,255,0.25)" font-size="10" text-anchor="middle" font-family="Montserrat">15-20% месячного удержания</text>
+                    <text x="130" y="355" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">Среднее по индустрии</text>
+                    <rect x="270" y="310" width="220" height="60" rx="8" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.2)"/>
+                    <text x="380" y="335" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">40%+ месячного удержания</text>
+                    <text x="380" y="355" fill="rgba(212,175,55,0.5)" font-size="9" text-anchor="middle" font-family="Montserrat">Цель соц. механик</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. THE VISION — Three Pillars                                 -->
+<!-- ============================================================ -->
+<section id="vision" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:500px;height:500px;top:5%;left:-10%;filter:blur(110px);animation:orbFloat1 28s ease-in-out infinite,orbPulse 10s ease-in-out infinite;--pulse-min:0.12;--pulse-max:0.28;"></div>
+        <div class="orb orb--arena" style="width:400px;height:400px;bottom:5%;right:5%;filter:blur(100px);animation:orbFloat2 24s ease-in-out infinite,orbPulse 9s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="column-decor column-decor--left hidden lg:block" style="height:80%;opacity:0.04;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="column-decor column-decor--right hidden lg:block" style="height:80%;opacity:0.04;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Видение</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Три столпа <span class="text-gold">Колизея</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto italic px-2">«Kekius Market — это не рынок прогнозов. Это социальная арена прогнозов для мира СНГ.»</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- PILLAR 1: SQUADS -->
+            <div class="pitch-card p-6 sm:p-8 reveal flex flex-col text-center">
+                <div class="pillar-icon bg-roman-gold/10">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="12" r="5" stroke="#d4af37" stroke-width="1.5"/>
+                        <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                        <circle cx="8" cy="14" r="3.5" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <path d="M1 28c0-4 3-7 7-7" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.5"/>
+                        <circle cx="28" cy="14" r="3.5" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <path d="M35 28c0-4-3-7-7-7" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">SQUADS</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">Легионы</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Центурион создаёт Сквад (публичный или приватный)</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Участники вносят депозит и получают <strong class="text-white">доли (паи)</strong> пропорционально вкладу</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>P&L распределяется по долям автоматически</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Центурион устанавливает комиссию управления = доход</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Рейтинг ранжирует Сквады по ROI</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-roman-gold/5 border border-roman-gold/10">
+                    <p class="text-xs text-gray-400"><strong class="text-roman-gold">Маховик:</strong> Каждый инфлюенсер становится управляющим фондом. Они зарабатывают комиссии, подписчики — доходность, платформа — объём. Все продвигают органически.</p>
+                </div>
+            </div>
+
+            <!-- PILLAR 2: COPY TRADING -->
+            <div class="pitch-card p-6 sm:p-8 reveal delay-100 flex flex-col text-center">
+                <div class="pillar-icon bg-white/5">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="10" r="6" stroke="#d4af37" stroke-width="1.5"/>
+                        <path d="M18 16v8m-4 0h8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M6 32l4-6m20 6l-4-6" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <circle cx="6" cy="32" r="3" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                        <circle cx="30" cy="32" r="3" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                        <path d="M18 24l-8 4m8-4l8 4" stroke="#d4af37" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">COPY TRADING</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">Следуй за Гладиатором</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>Публичные профили с историей, винрейтом, ROI</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>Авто-зеркалирование прогнозов с настраиваемыми лимитами</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>Топ-трейдеры ранжируются как <strong class="text-white">Гладиаторы</strong> в рейтинге</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>Гладиаторы получают долю прибыли от копирующих</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-white/5 border border-white/5">
+                    <p class="text-xs text-gray-400"><strong class="text-white">50%+ adoption</strong> на платформах, где есть эта функция. Проверенная механика. Гладиаторы также могут вести Сквады — фичи усиливают друг друга.</p>
+                </div>
+            </div>
+
+            <!-- PILLAR 3: PROPHECY ENGINE -->
+            <div class="pitch-card p-6 sm:p-8 reveal delay-200 flex flex-col text-center">
+                <div class="pillar-icon bg-roman-red/10">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="14" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+                        <circle cx="18" cy="18" r="10" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        <path d="M18 8v2m0 16v2m-10-10h2m16 0h2" stroke="#d4af37" stroke-width="1.5" opacity="0.4"/>
+                        <path d="M12 18c0-3.3 2.7-6 6-6" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="18" cy="18" r="2" fill="#d4af37"/>
+                        <path d="M18 6l-1 3h2l-1-3z" fill="#d4af37" opacity="0.6"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">TIME MACHINE</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">Пророческий движок</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>Кривые вероятности в реальном времени по ставкам сообщества</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>Перемотка после событий: где была альфа?</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span><strong class="text-white">Оракул Дельфи:</strong> AI-базовые прогнозы</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>Люди vs. Машина — ежемесячный рейтинг</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-roman-red/5 border border-roman-red/10">
+                    <p class="text-xs text-gray-400"><strong class="text-roman-gold">Контент-машина:</strong> Каждый прогноз становится историей. Бесконечно шеримый. Когда люди обыгрывают AI — это история. Когда AI побеждает — тоже история.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. PRODUCT — Features, Gamification, Revenue                  -->
+<!-- ============================================================ -->
+<section id="product" class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--purple" style="width:450px;height:450px;top:-10%;right:-12%;filter:blur(100px);animation:orbFloat2 26s ease-in-out infinite;--pulse-min:0.14;--pulse-max:0.32;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Продукт</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4">Создано для <span class="text-gold">Гладиаторов</span></h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 lg:mb-16">
+            <div class="feature-grid-item reveal">
+                <div class="text-roman-gold mb-3"><i class="fa-solid fa-coins text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Мульти-токен прогнозы</h4>
+                <p class="text-sm text-gray-400">USDT/USDC как основная валюта. Стейкеры $KEKIUS получают скидки на комиссии, бустнутые награды, эксклюзивный доступ к Сквадам.</p>
+            </div>
+            <div class="feature-grid-item reveal delay-100">
+                <div class="text-roman-gold mb-3"><i class="fa-brands fa-telegram text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Telegram Mini App</h4>
+                <p class="text-sm text-gray-400">Прогнозы, управление Сквадами, рейтинги — не выходя из Telegram. Нативная дистрибуция в СНГ.</p>
+            </div>
+            <div class="feature-grid-item reveal delay-200">
+                <div class="text-roman-gold mb-3"><i class="fa-solid fa-ranking-star text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Римские ранги</h4>
+                <p class="text-sm text-gray-400">Трибун, Центурион, Преторианец, Цезарь. Зарабатываются через объём и винрейт. Сезонные лиги с призовыми фондами.</p>
+            </div>
+            <div class="feature-grid-item reveal">
+                <div class="text-roman-gold mb-3"><i class="fa-solid fa-shield-halved text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Режим баттлов</h4>
+                <p class="text-sm text-gray-400">1v1 или Сквад vs Сквад — прогнозы лоб в лоб. Победитель забирает всё. Стримы в Telegram/X.</p>
+            </div>
+            <div class="feature-grid-item reveal delay-100">
+                <div class="text-roman-gold mb-3"><i class="fa-solid fa-scroll text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Свитки пророчеств</h4>
+                <p class="text-sm text-gray-400">NFT-награды за правильные high-conviction прогнозы. Маркеры репутации. Нефинансовая экономика статуса.</p>
+            </div>
+            <div class="feature-grid-item reveal delay-200">
+                <div class="text-roman-gold mb-3"><i class="fa-solid fa-landmark text-2xl"></i></div>
+                <h4 class="font-bold text-white mb-2">Сенат</h4>
+                <p class="text-sm text-gray-400">Холдеры $KEKIUS голосуют за новые рынки. Не дженерик DAO-управление. Управление созданием рынков.</p>
+            </div>
+        </div>
+
+        <!-- Revenue Model -->
+        <div class="reveal">
+            <div class="pitch-card p-6 sm:p-8 md:p-10 border-roman-gold/10">
+                <h3 class="font-roman font-bold text-white text-lg sm:text-xl mb-8 text-center">Архитектура дохода</h3>
+                <!-- SVG Revenue Flow -->
+                <svg viewBox="0 0 800 200" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central node -->
+                    <rect x="310" y="70" width="180" height="60" rx="8" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="400" y="96" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Cinzel" font-weight="700">KEKIUS MARKET</text>
+                    <text x="400" y="115" fill="rgba(255,255,255,0.4)" font-size="9" text-anchor="middle" font-family="Montserrat">Доход платформы</text>
+                    <!-- Left streams -->
+                    <rect x="20" y="20" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="38" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Торговые комиссии (1-2%)</text>
+                    <text x="100" y="52" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">60-70% дохода</text>
+                    <line x1="180" y1="42" x2="310" y2="90" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="20" y="80" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="98" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Комиссии Сквадов</text>
+                    <text x="100" y="112" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">15-20% дохода</text>
+                    <line x1="180" y1="102" x2="310" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="20" y="140" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="158" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Комиссии копитрейдинга</text>
+                    <text x="100" y="172" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">10-15% дохода</text>
+                    <line x1="180" y1="162" x2="310" y2="110" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <!-- Right outputs -->
+                    <rect x="620" y="40" width="160" height="44" rx="6" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.2)"/>
+                    <text x="700" y="58" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Байбек $KEKIUS</text>
+                    <text x="700" y="72" fill="rgba(212,175,55,0.5)" font-size="9" text-anchor="middle" font-family="Montserrat">Накопление стоимости токена</text>
+                    <line x1="490" y1="90" x2="620" y2="62" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+
+                    <rect x="620" y="100" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="700" y="118" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Премиум / AI Оракул</text>
+                    <text x="700" y="132" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Montserrat">5-10% дохода</text>
+                    <line x1="490" y1="100" x2="620" y2="122" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="620" y="160" width="160" height="30" rx="6" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.15)"/>
+                    <text x="700" y="180" fill="rgba(212,175,55,0.6)" font-size="10" text-anchor="middle" font-family="Cinzel" font-weight="600">Цель Y1: $13M</text>
+                    <line x1="490" y1="115" x2="620" y2="175" stroke="rgba(212,175,55,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. PROOF — Track record (compressed, evidence not headline)  -->
+<!-- ============================================================ -->
+<section id="proof" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:350px;height:350px;top:5%;left:5%;filter:blur(90px);animation:orbFloat1 24s ease-in-out infinite;--pulse-min:0.14;--pulse-max:0.32;"></div>
+        <div class="orb orb--purple" style="width:400px;height:400px;top:40%;right:-5%;filter:blur(100px);animation:orbFloat3 30s ease-in-out infinite;animation-delay:-5s;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Почему мы</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Мы не просто строим концепты.<br><span class="text-gold">Мы запускаем Империи.</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-2">Доказанный опыт превращения внимания в капитализацию. Трижды.</p>
+        </div>
+
+        <!-- Video Pitch -->
+        <div class="max-w-4xl mx-auto mb-12 lg:mb-16 reveal">
+            <div class="pitch-card p-3 sm:p-4 md:p-5">
+                <div class="flex items-center gap-3 mb-4 px-1">
+                    <div class="w-2 h-2 rounded-full bg-roman-gold animate-pulse flex-shrink-0"></div>
+                    <span class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-bold font-roman">Видео-питч продукта</span>
+                </div>
+                <div class="relative w-full rounded-lg overflow-hidden" style="padding-bottom:56.25%;">
+                    <iframe
+                        src="https://www.youtube.com/embed/NOXBBhWNqSw?rel=0&modestbranding=1&color=white"
+                        title="Kekius Market — Product Pitch"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        class="absolute inset-0 w-full h-full rounded-lg"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Moat stats -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 lg:mb-14 reveal">
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-4xl font-roman font-bold text-white mb-1"><span class="counter" data-target="200" data-suffix="K">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Активных подписчиков</div>
+                <div class="text-[10px] text-roman-gold mt-1">75% вовлечённость</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-4xl font-roman font-bold text-white mb-1"><span class="counter" data-target="8" data-prefix="$" data-suffix="B+">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Сгенерированный объём</div>
+                <div class="text-[10px] text-roman-gold mt-1">Как аффилиаты (утекший доход)</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-4xl font-roman font-bold text-white mb-1"><span class="counter" data-target="13000" data-suffix="+">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">KYC-пользователей онбордили</div>
+                <div class="text-[10px] text-roman-gold mt-1">Через MEXC / Bitget</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-4xl font-roman font-bold text-gold mb-1">~0</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Стоимость привлечения клиента</div>
+                <div class="text-[10px] text-roman-gold mt-1">Свои легионы, не наёмники</div>
+            </div>
+        </div>
+
+        <!-- Token track record — compact -->
+        <div class="grid md:grid-cols-3 gap-6 reveal delay-100">
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">$GRIMACE</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">1000x</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>С 8K до 900K подписчиков в TG</p>
+                    <p><strong class="text-white">$100K до $100M</strong> капитализация</p>
+                    <p>Обогнал ETH по дневному объёму на MEXC</p>
+                </div>
+                <div class="proof-frame mt-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196335/image_46_eybivo.png" alt="GRIMACE"></div>
+            </div>
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">$SEX</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">615x</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>Второй токен Одиссея</p>
+                    <p><strong class="text-white">$780K до $480M</strong> за 6 месяцев</p>
+                    <p>8000 пиковых одновременных зрителей</p>
+                </div>
+                <div class="proof-frame mt-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_46_1_knyspc.png" alt="SEX"></div>
+            </div>
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">G.O.D.</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">#1 CIS</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>Grimace Odyssey Donations</p>
+                    <p>100M+ просмотров, <strong class="text-white">$1M+ пожертвовано</strong></p>
+                    <p>#1 благотворительный фонд в СНГ за 4 месяца</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-4">
+                    <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_17_nop3wi.png" alt="TG"></div>
+                    <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_18_fjl8hf.png" alt="IG"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. ROADMAP                                                    -->
+<!-- ============================================================ -->
+<section class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--warm" style="width:400px;height:400px;top:20%;left:-5%;filter:blur(100px);animation:orbFloat1 28s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Дорожная карта</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-4xl font-roman font-bold text-white">Путь <span class="text-gold">завоевания</span></h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line hidden sm:block"></div>
+            <div class="space-y-8 sm:space-y-10">
+                <!-- Phase 1 -->
+                <div class="flex gap-6 sm:gap-8 reveal">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot timeline-dot--active"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6 border-roman-gold/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">ФАЗА I</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">Месяцы 1-2</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Игры Гладиаторов</h4>
+                        <p class="text-sm text-gray-400">Запуск со зрелищем. Турнир Гладиаторов с призовым фондом $50K, стрим в прямом эфире. Первые 10 Сквадов от топ СНГ-инфлюенсеров. Крипто-рынки на старте.</p>
+                    </div>
+                </div>
+                <!-- Phase 2 -->
+                <div class="flex gap-6 sm:gap-8 reveal delay-100">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">ФАЗА II</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">Месяцы 3-6</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Экспансия</h4>
+                        <p class="text-sm text-gray-400">Сквады для всех. Запуск копитрейдинга + Telegram Mini App. Добавляем СНГ-киберспорт (Dota 2, CS2). Тулкит для инфлюенсеров с виджетами и отслеживанием рефералов.</p>
+                    </div>
+                </div>
+                <!-- Phase 3 -->
+                <div class="flex gap-6 sm:gap-8 reveal delay-200">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">ФАЗА III</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">Месяцы 6-12</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Империя</h4>
+                        <p class="text-sm text-gray-400">Запуск Prophecy Engine. API для сторонних интеграций. Глобальная экспансия. Партнёрства с регулируемыми рынками. Кросс-платформенное встраивание прогнозов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. FUNDRAISE                                                  -->
+<!-- ============================================================ -->
+<section id="fundraise" class="py-20 sm:py-24 lg:py-32 bg-roman-base orb-section relative">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:600px;height:600px;top:10%;left:50%;margin-left:-300px;filter:blur(130px);animation:orbFloat3 35s ease-in-out infinite,orbPulse 12s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.28;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="column-decor column-decor--left hidden md:block" style="height:85%;opacity:0.055;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="column-decor column-decor--right hidden md:block" style="height:85%;opacity:0.055;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-12 h-[1px] bg-roman-gold/50"></div><i class="fa-solid fa-crown text-roman-gold text-sm"></i><div class="w-12 h-[1px] bg-roman-gold/50"></div></div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6 uppercase tracking-wider">Войдите в Имперский Сенат</h2>
+            <p class="text-gray-400 font-roman tracking-widest text-xs sm:text-sm">Seed-раунд</p>
+        </div>
+        <div class="pitch-card p-6 sm:p-10 md:p-14 reveal delay-100 border-white/10 relative overflow-hidden">
+            <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16 pb-10 sm:pb-12 border-b border-white/10">
+                <div class="text-center sm:text-left">
+                    <div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Привлекаем (Equity)</div>
+                    <div class="text-5xl sm:text-6xl font-roman font-black text-white">$4M</div>
+                </div>
+                <div class="text-center sm:text-right">
+                    <div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Оценка</div>
+                    <div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="40" data-prefix="$" data-suffix="M">0</span></div>
+                    <div class="text-[10px] sm:text-xs text-roman-gold mt-3 uppercase tracking-widest">Series A запланирован на 2026-2027 @ $200M</div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <div>
+                    <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Путь к прибыльности</h3>
+                    <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                        <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q1</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$328K</span></div>
+                        <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q2</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$2.5M</span></div>
+                        <div class="flex justify-between items-center p-4 sm:p-5 bg-roman-gold/10 rounded border border-roman-gold/30"><span class="text-gold text-sm sm:text-base font-bold uppercase tracking-wider">Year 1</span><span class="font-roman text-2xl sm:text-3xl text-gold font-bold">$13.03M</span></div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 sm:p-6 bg-black rounded-lg border border-white/10 gap-4">
+                        <div class="min-w-0"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-1">Прогнозируемый ROI</div><div class="text-[10px] sm:text-sm text-gray-400">($1.303M прибыли в Y1 при 10% доле)</div></div>
+                        <div class="text-3xl sm:text-4xl font-roman font-black text-white flex-shrink-0 tabular-nums" style="min-width:7ch;text-align:right;"><span class="counter" data-target="65.15" data-suffix="%">0</span></div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Использование средств</h3>
+                    <div class="w-full h-2 flex rounded bg-white/5 mb-6 sm:mb-8">
+                        <div class="bg-white progress-fill transition-all duration-1000 ease-out rounded-l" style="width:0%" data-width="28%"></div>
+                        <div class="bg-gray-400 progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="28%"></div>
+                        <div class="bg-gray-600 progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="19%"></div>
+                        <div class="bg-roman-border progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="14%"></div>
+                        <div class="bg-[#111] progress-fill transition-all duration-1000 ease-out rounded-r" style="width:0%" data-width="11%"></div>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-white rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Зарплаты</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-400 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Маркетинг</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Обслуживание</span></div><span class="font-roman font-bold text-white text-sm">19%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-roman-border rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Юридические</span></div><span class="font-roman font-bold text-white text-sm">14%</span></div>
+                        <div class="flex justify-between items-center pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-[#111] border border-white/20 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Прочее + Резерв</span></div><span class="font-roman font-bold text-white text-sm">11%</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 sm:mt-12 text-center">
+                <a href="https://t.me/basharxd" target="_blank" rel="noopener noreferrer" class="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-roman font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-gray-200 transition-colors rounded shadow-[0_0_20px_rgba(255,255,255,0.2)]">Запросить полный дек</a>
+                <p class="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-widest mt-4">Telegram: <span class="text-roman-gold font-bold">@basharxd</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-roman-base border-t border-white/5 pt-12 sm:pt-16 pb-8">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
+        <div class="text-white/5 font-roman font-black text-5xl sm:text-7xl md:text-9xl tracking-[0.3em] mb-8 sm:mb-12 select-none pointer-events-none">S P Q R</div>
+        <div class="flex items-center justify-center gap-3 mb-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1773759947/Screenshot_1_rm37qj.jpg" alt="Kekius Logo" class="w-6 h-6 rounded-full border border-white/20 opacity-80 grayscale"><span class="font-roman text-gray-500 uppercase tracking-widest text-xs font-bold">Kekius Market</span></div>
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-3">Odyssey &mdash; Основатель и CEO</p>
+        <div class="flex items-center justify-center gap-6 mb-8">
+            <a href="https://t.me/doge1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-telegram text-base"></i>@doge1</a>
+            <a href="https://x.com/grimaceodysseus" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-x-twitter text-base"></i>@grimaceodysseus</a>
+        </div>
+        <p class="text-[10px] text-gray-600 font-normal max-w-3xl mx-auto mb-6 leading-relaxed px-4">Дисклеймер: Информация на этом сайте не является инвестиционной рекомендацией. Инвестиции в стартапы ранних стадий связаны с высоким риском (DYOR). Kekius Market оставляет за собой право изменять спецификации продукта по мере разработки.</p>
+        <div class="text-gray-700 text-[10px] font-roman uppercase tracking-widest">&copy; 2026 Kekius Market. Все права защищены.</div>
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
+    <button id="lightbox-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 text-white hover:text-roman-gold text-3xl sm:text-4xl md:text-5xl z-50 transition-colors w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-full max-h-full rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.15)] border border-white/10 transform scale-95 transition-transform duration-300">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    // Lightbox
+    const lb=document.getElementById('lightbox'),lbi=document.getElementById('lightbox-img'),lbc=document.getElementById('lightbox-close');
+    document.querySelectorAll('.proof-frame img').forEach(img=>{img.addEventListener('click',e=>{lbi.src=e.target.src;lb.classList.remove('hidden');void lb.offsetWidth;lb.classList.remove('opacity-0');lbi.classList.remove('scale-95');lbi.classList.add('scale-100');document.body.style.overflow='hidden';});});
+    const closeLb=()=>{lb.classList.add('opacity-0');lbi.classList.remove('scale-100');lbi.classList.add('scale-95');setTimeout(()=>{lb.classList.add('hidden');document.body.style.overflow='';},300);};
+    lbc.addEventListener('click',closeLb);lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.classList.contains('hidden'))closeLb();});
+
+    // Reveal
+    const ro=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("active");obs.unobserve(entry.target);}});},{threshold:0.1,rootMargin:"0px 0px -50px 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+
+    // Counters
+    const co=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){const target=parseFloat(entry.target.getAttribute("data-target"));const prefix=entry.target.getAttribute("data-prefix")||"";const suffix=entry.target.getAttribute("data-suffix")||"";let start=null;const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/2000,1);const ease=1-Math.pow(1-p,4);let val=ease*target;let fmt=target%1!==0?val.toFixed(2):Math.floor(val).toLocaleString('en-US');entry.target.innerText=prefix+fmt+suffix;if(p<1)requestAnimationFrame(step);else entry.target.innerText=prefix+(target%1!==0?target.toFixed(2):target.toLocaleString('en-US'))+suffix;};requestAnimationFrame(step);obs.unobserve(entry.target);}});},{threshold:0.5});
+    document.querySelectorAll(".counter").forEach(el=>co.observe(el));
+
+    // Progress bars
+    const po=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.style.width=entry.target.getAttribute("data-width");},100);obs.unobserve(entry.target);}});},{threshold:0.5});
+    document.querySelectorAll(".progress-fill").forEach(el=>po.observe(el));
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.orb').forEach(o=>o.style.animation='none');
+});
+window.addEventListener('scroll',function(){const n=document.getElementById('navbar');if(window.scrollY>50){n.classList.add('bg-roman-base/90','backdrop-blur-md','border-white/10');n.classList.remove('border-transparent','bg-roman-base/0');}else{n.classList.remove('bg-roman-base/90','backdrop-blur-md','border-white/10');n.classList.add('border-transparent','bg-roman-base/0');}});
+</script>
+</body>
+</html>
