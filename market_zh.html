@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEKIUS MARKET | 社交预测竞技场</title>
+    <meta property="og:title" content="KEKIUS MARKET | 社交预测竞技场">
+    <meta property="og:description" content="预测市场是一个3250亿美元的机遇,被忘记了加密本质是社交的两个玩家主导。我们正在打造一个竞技场,社区在此竞争,影响者领导,每一场下注都是一场运动。由$KEKIUS驱动。全球化从第一天开始。">
+    <meta property="og:image" content="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1775040884/kk_mylkjd.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0d0417">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roman: { base: '#0d0417', surface: '#1a0b2e', border: '#3d265c', gold: '#d4af37', goldlight: '#f5d675', red: '#8b0000' }
+                    },
+                    fontFamily: { roman: ['Noto Serif SC','Cinzel','serif'], body: ['Montserrat','sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background:#0d0417; color:#fdfbf7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        .text-gold { background:linear-gradient(to right,#d4af37,#fcf6ba,#b38728); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .bg-hero-imperial {
+            background-color:#0d0417;
+            background-image: linear-gradient(to bottom, rgba(13,4,23,0.2) 0%, rgba(13,4,23,0.7) 70%, #0d0417 100%),
+                url('https://res.cloudinary.com/dp7d6x1oq/image/upload/q_auto/f_auto/v1775040293/full_czxoxe.jpg');
+            background-size:cover; background-position:center 20%; background-attachment:fixed;
+        }
+        @media(max-width:768px){ .bg-hero-imperial{background-attachment:scroll;} }
+        .orb-section { position:relative; overflow:hidden; }
+        .orb-layer { position:absolute; inset:0; pointer-events:none; z-index:0; }
+        .orb { position:absolute; border-radius:50%; will-change:transform,opacity; }
+        .orb--gold { background:radial-gradient(circle,rgba(212,175,55,0.25),rgba(212,175,55,0) 70%); }
+        .orb--purple { background:radial-gradient(circle,rgba(61,26,110,0.3),rgba(61,26,110,0) 70%); }
+        .orb--warm { background:radial-gradient(circle,rgba(180,100,30,0.18),rgba(180,100,30,0) 70%); }
+        .orb--arena { background:radial-gradient(circle,rgba(139,0,0,0.15),rgba(139,0,0,0) 70%); }
+        @keyframes orbFloat1{0%{transform:translate(0,0)}25%{transform:translate(50px,-30px)}50%{transform:translate(-20px,40px)}75%{transform:translate(30px,15px)}100%{transform:translate(0,0)}}
+        @keyframes orbFloat2{0%{transform:translate(0,0)}25%{transform:translate(-40px,25px)}50%{transform:translate(35px,-35px)}75%{transform:translate(-15px,-20px)}100%{transform:translate(0,0)}}
+        @keyframes orbFloat3{0%{transform:translate(0,0)}33%{transform:translate(45px,30px)}66%{transform:translate(-30px,-25px)}100%{transform:translate(0,0)}}
+        @keyframes orbPulse{0%,100%{opacity:var(--pulse-min,0.12)}50%{opacity:var(--pulse-max,0.35)}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        @keyframes pulse-ring{0%{transform:scale(0.8);opacity:0.6}100%{transform:scale(1.6);opacity:0}}
+        @keyframes dash{to{stroke-dashoffset:0}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .noise-overlay { position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0.03;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat:repeat; background-size:256px; }
+        .orb-section>*:not(.orb-layer):not(.noise-overlay):not(.column-decor){position:relative;z-index:2;}
+        .column-decor{position:absolute;pointer-events:none;z-index:1;bottom:0;}
+        .column-decor svg{display:block;height:100%;width:auto;}
+        .column-decor--left{left:0;} .column-decor--right{right:0;}
+        .column-decor--right svg{transform:scaleX(-1);}
+        .bg-roman-pattern { background-color:#1a0b2e; background-image:linear-gradient(rgba(26,11,46,0.85),rgba(13,4,23,0.95)),url('https://www.transparenttextures.com/patterns/wall-4-light.png'); }
+        .pitch-card { background:rgba(26,11,46,0.4);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:1.5rem;transition:border-color 0.3s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); }
+        @media(min-width:768px){.pitch-card{padding:2.5rem;}} @media(min-width:1024px){.pitch-card{padding:3rem;}}
+        .pitch-card:hover{border-color:rgba(212,175,55,0.2);}
+        .proof-frame { background:#000;border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);position:relative; }
+        .proof-frame::after { content:'\f00e';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:1.5rem;opacity:0;transition:opacity 0.3s ease;pointer-events:none;text-shadow:0 2px 10px rgba(0,0,0,0.8); }
+        .proof-frame:hover::after{opacity:0.8;}
+        .proof-frame img{width:100%;height:auto;display:block;object-fit:cover;cursor:zoom-in;transition:transform 0.4s ease,filter 0.4s ease;}
+        .proof-frame:hover img{transform:scale(1.03);filter:brightness(0.6);}
+        .pillar-icon { width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative; }
+        .pillar-icon::before { content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(212,175,55,0.3);animation:pulse-ring 3s ease-in-out infinite; }
+        .feature-grid-item { position:relative;padding:2rem;border-radius:12px;background:rgba(26,11,46,0.3);border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease; }
+        .feature-grid-item:hover { border-color:rgba(212,175,55,0.2);transform:translateY(-4px); }
+        .timeline-line { position:absolute;left:24px;top:60px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(212,175,55,0.4),rgba(212,175,55,0)); }
+        .timeline-dot { width:12px;height:12px;border-radius:50%;border:2px solid #d4af37;background:#0d0417;position:relative;z-index:2;flex-shrink:0; }
+        .timeline-dot--active { background:#d4af37; }
+        ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:#0d0417;} ::-webkit-scrollbar-thumb{background:#3d265c;border-radius:3px;} ::-webkit-scrollbar-thumb:hover{background:#d4af37;}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+        .reveal.active{opacity:1;transform:translateY(0);}
+        .delay-100{transition-delay:0.1s;} .delay-200{transition-delay:0.2s;} .delay-300{transition-delay:0.3s;}
+        .section-py{padding-top:4rem;padding-bottom:4rem;}
+        @media(min-width:641px){.section-py{padding-top:5rem;padding-bottom:5rem;}}
+        @media(min-width:1024px){.section-py{padding-top:6rem;padding-bottom:6rem;}}
+        @media(max-width:640px){.orb{filter:blur(60px)!important;}.proof-frame img{min-height:120px;}}
+        /* SVG illustration animations */
+        .illu-squad-orbit { animation: orbFloat1 8s ease-in-out infinite; }
+        .illu-float { animation: float 4s ease-in-out infinite; }
+        .illu-pulse { animation: orbPulse 3s ease-in-out infinite; --pulse-min:0.5; --pulse-max:1; }
+        .market-bar { transform-origin: bottom; animation: growBar 1.5s ease-out forwards; }
+        @keyframes growBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+        .stat-highlight { background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05)); border:1px solid rgba(212,175,55,0.2); border-radius:12px; padding:1.5rem; text-align:center; }
+    </style>
+</head>
+<body class="font-body selection:bg-roman-gold selection:text-roman-base">
+<!-- HIDDEN SVG DEFS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<defs>
+    <symbol id="roman-column" viewBox="0 0 120 700">
+        <linearGradient id="col-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="currentColor" stop-opacity="0"/><stop offset="20%" stop-color="currentColor" stop-opacity="0.4"/><stop offset="100%" stop-color="currentColor" stop-opacity="1"/></linearGradient>
+        <rect x="0" y="20" width="120" height="10" rx="1" fill="url(#col-fade)"/><rect x="5" y="30" width="110" height="6" rx="1" fill="url(#col-fade)" opacity="0.7"/>
+        <rect x="10" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="22" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="34" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="46" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="58" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="70" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="82" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="94" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/><rect x="106" y="36" width="6" height="5" fill="url(#col-fade)" opacity="0.5"/>
+        <rect x="18" y="44" width="84" height="7" rx="2" fill="url(#col-fade)"/>
+        <path d="M22 55 C12 55,8 62,14 68 C18 72,26 70,26 65 C26 61,20 60,20 63" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+        <path d="M98 55 C108 55,112 62,106 68 C102 72,94 70,94 65 C94 61,100 60,100 63" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+        <path d="M26 53 Q60 62 94 53 L92 58 Q60 66 28 58 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="32" y="70" width="56" height="5" rx="2" fill="url(#col-fade)" opacity="0.6"/>
+        <rect x="34" y="75" width="52" height="560" rx="3" fill="url(#col-fade)" opacity="0.6"/>
+        <line x1="40" y1="80" x2="40" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="46" y1="80" x2="46" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="52" y1="80" x2="52" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="58" y1="80" x2="58" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="64" y1="80" x2="64" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="70" y1="80" x2="70" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="76" y1="80" x2="76" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/><line x1="82" y1="80" x2="82" y2="630" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+        <rect x="44" y="80" width="4" height="550" rx="2" fill="currentColor" opacity="0.05"/>
+        <path d="M28 635 Q60 645 92 635 L94 642 Q60 652 26 642 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="30" y="643" width="60" height="6" rx="1" fill="url(#col-fade)" opacity="0.4"/>
+        <path d="M24 649 Q60 660 96 649 L98 658 Q60 668 22 658 Z" fill="url(#col-fade)" opacity="0.8"/>
+        <rect x="16" y="660" width="88" height="16" rx="2" fill="url(#col-fade)" opacity="0.9"/>
+        <rect x="8" y="676" width="104" height="24" rx="3" fill="url(#col-fade)"/>
+    </symbol>
+</defs>
+</svg>
+
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-roman-gold to-transparent fixed top-0 z-50 opacity-50"></div>
+
+<!-- HEADER -->
+<header class="fixed w-full top-0 z-40 transition-all duration-300 border-b border-transparent bg-roman-base/0 backdrop-blur-sm" id="navbar">
+    <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div class="flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 sm:gap-4 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 overflow-hidden group-hover:border-roman-gold/50 transition-colors flex-shrink-0">
+                    <img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1773759947/Screenshot_1_rm37qj.jpg" alt="Kekius Logo" class="w-full h-full object-cover">
+                </div>
+                <div class="font-roman font-bold text-base sm:text-lg tracking-[0.2em] text-white uppercase hidden sm:block">Kekius</div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold">
+                <a href="#opportunity" class="text-gray-400 hover:text-white transition-colors">市场</a>
+                <a href="#vision" class="text-gray-400 hover:text-white transition-colors">愿景</a>
+                <a href="#product" class="text-gray-400 hover:text-white transition-colors">产品</a>
+                <a href="#features" class="text-gray-400 hover:text-white transition-colors">功能</a>
+                <a href="#proof" class="text-gray-400 hover:text-white transition-colors">实力证明</a>
+                <a href="#fundraise" class="text-gray-400 hover:text-white transition-colors">融资</a>
+            </nav>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="flex items-center border border-roman-gold/40 rounded overflow-hidden text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest">
+                    <a href="market.html" class="px-3 py-1.5 sm:px-4 sm:py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">EN</a>
+                    <a href="market_ru.html" class="px-3 py-1.5 sm:px-4 sm:py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">RU</a>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-roman-gold text-black cursor-default">中文</span>
+                </div>
+                <a href="#fundraise" class="px-4 sm:px-6 py-2 sm:py-2.5 bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-roman font-bold uppercase tracking-widest hover:bg-roman-gold hover:text-black hover:border-roman-gold transition-all rounded">种子轮</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- 0. HERO — Lead with the vision, not the past                 -->
+<!-- ============================================================ -->
+<section class="relative min-h-screen flex items-center pt-24 pb-20 bg-hero-imperial">
+    <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
+        <div class="mb-6 sm:mb-8 reveal">
+            <span class="text-roman-gold font-roman tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold px-4 py-1.5 border border-roman-gold/30 rounded-full bg-black/50">
+                $3250亿市场 • 由$KEKIUS驱动 • 社交优先
+            </span>
+        </div>
+        <h1 class="text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-roman font-bold mb-4 sm:mb-6 tracking-tight leading-[1.1] reveal delay-100">
+            <span class="text-white drop-shadow-lg">社交</span><br>
+            <span class="text-gold">预测竞技场</span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl font-body font-normal mb-3 sm:mb-4 max-w-3xl mx-auto text-gray-200 reveal delay-200 tracking-wide px-4">
+            预测市场是一个3250亿美元的机遇,被忘记了加密本质是社交的两个玩家主导。我们正在打造一个竞技场,社区在此竞争,影响者领导,每一场下注都是一场运动。
+        </p>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto mb-10 sm:mb-12 reveal delay-200 uppercase tracking-widest leading-relaxed px-4">
+            由将10万美元变成1亿美元三次的团队打造。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 reveal delay-300 w-full sm:w-auto px-4 sm:px-0">
+            <a href="#vision" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-roman-gold text-black font-roman font-bold uppercase tracking-widest hover:bg-roman-goldlight transition-all text-sm flex items-center justify-center gap-3">
+                探索愿景 <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#fundraise" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded bg-white/5 backdrop-blur-md border border-white/10 text-white font-roman font-bold uppercase tracking-widest hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-3">
+                种子轮 <i class="fa-solid fa-crown text-roman-gold text-xs"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Scroll indicator — anchored to section bottom -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 reveal delay-300">
+        <div class="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center pt-2">
+            <div class="w-1 h-2 bg-roman-gold rounded-full animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 1. THE OPPORTUNITY — Market size + gap                       -->
+<!-- ============================================================ -->
+<section id="opportunity" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:420px;height:420px;top:-15%;left:-8%;filter:blur(90px);animation:orbFloat1 22s ease-in-out infinite,orbPulse 9s ease-in-out infinite;--pulse-min:0.15;--pulse-max:0.35;"></div>
+        <div class="orb orb--purple" style="width:350px;height:350px;bottom:-10%;right:-5%;filter:blur(100px);animation:orbFloat2 28s ease-in-out infinite,orbPulse 11s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.28;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">市场机遇</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">一个1万亿美元的市场<br><span class="text-gold">却没有社交层</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-2">预测市场在2025年增长4倍至635亿美元。预计2026年达3250亿美元以上,2030年达1万亿美元以上。两个玩家控制了97.5%的市场。两者都构建了交易终端。但都没有构建社区。</p>
+        </div>
+
+        <!-- Market 增长 SVG Chart -->
+        <div class="reveal mb-12 lg:mb-16">
+            <div class="pitch-card p-6 sm:p-8 md:p-10 border-roman-gold/10">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-roman font-bold text-white text-sm sm:text-base uppercase tracking-widest">预测市场交易量增长</h3>
+                    <span class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">资料来源:行业数据2024-2030</span>
+                </div>
+                <svg viewBox="0 0 800 300" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.9"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0.3"/></linearGradient>
+                        <linearGradient id="barGradFuture" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.5"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0.15"/></linearGradient>
+                    </defs>
+                    <!-- Grid lines -->
+                    <line x1="80" y1="40" x2="780" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="100" x2="780" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="160" x2="780" y2="160" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="80" y1="220" x2="780" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <!-- Y-axis labels -->
+                    <text x="70" y="44" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$1万亿</text>
+                    <text x="70" y="104" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$7500亿</text>
+                    <text x="70" y="164" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$5000亿</text>
+                    <text x="70" y="224" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end" font-family="Montserrat">$2500亿</text>
+                    <!-- Bars -->
+                    <rect class="market-bar" x="120" y="260" width="60" height="10" rx="2" fill="url(#barGrad)" style="animation-delay:0.2s"><title>2024: 约$160亿</title></rect>
+                    <rect class="market-bar" x="220" y="245" width="60" height="25" rx="2" fill="url(#barGrad)" style="animation-delay:0.4s"><title>2025: $635亿</title></rect>
+                    <rect class="market-bar" x="320" y="200" width="60" height="70" rx="2" fill="url(#barGrad)" style="animation-delay:0.6s"><title>2026: $3250亿</title></rect>
+                    <rect class="market-bar" x="420" y="155" width="60" height="115" rx="2" fill="url(#barGradFuture)" style="animation-delay:0.8s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2027: 约$5000亿</title></rect>
+                    <rect class="market-bar" x="520" y="110" width="60" height="160" rx="2" fill="url(#barGradFuture)" style="animation-delay:1s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2028: 约$6800亿</title></rect>
+                    <rect class="market-bar" x="620" y="65" width="60" height="205" rx="2" fill="url(#barGradFuture)" style="animation-delay:1.2s" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"><title>2029-2030: $1万亿+</title></rect>
+                    <!-- Bar labels -->
+                    <text x="150" y="256" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">$160亿</text>
+                    <text x="250" y="241" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">$640亿</text>
+                    <text x="350" y="196" fill="white" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="700">$3250亿</text>
+                    <text x="450" y="151" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle" font-family="Montserrat">$5000亿</text>
+                    <text x="550" y="106" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle" font-family="Montserrat">$6800亿</text>
+                    <text x="650" y="58" fill="#d4af37" font-size="12" text-anchor="middle" font-family="Cinzel" font-weight="700">$1万亿+</text>
+                    <!-- X-axis labels -->
+                    <text x="150" y="285" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="middle" font-family="Montserrat">2024</text>
+                    <text x="250" y="285" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="middle" font-family="Montserrat">2025</text>
+                    <text x="350" y="285" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="700">2026</text>
+                    <text x="450" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2027</text>
+                    <text x="550" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2028</text>
+                    <text x="650" y="285" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat">2030</text>
+                    <!-- Arrow annotation -->
+                    <text x="350" y="182" fill="#d4af37" font-size="9" text-anchor="middle" font-family="Montserrat" font-weight="600" opacity="0.8">我们在此</text>
+                    <line x1="350" y1="184" x2="350" y2="196" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Key stats -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 reveal delay-100">
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">97.5%</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">由两个玩家控制</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-gold mb-1">0</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">社交优先的竞争对手</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">4倍</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">同比市场增长</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="text-2xl sm:text-3xl font-roman font-bold text-white mb-1">$220亿</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">头部玩家估值</div>
+            </div>
+        </div>
+
+        <!-- Sources -->
+        <div class="mt-8 reveal delay-200">
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[9px] sm:text-[10px] text-gray-600 uppercase tracking-widest">
+                <span class="text-gray-500 font-bold">资料来源:</span>
+                <a href="https://finance.yahoo.com/news/prediction-markets-grew-4倍-63-140103455.html" target="_blank" rel="noopener noreferrer" class="hover:text-roman-gold transition-colors">CertiK / Yahoo Finance</a>
+                <span class="text-gray-700">&bull;</span>
+                <a href="https://www.trmlabs.com/resources/blog/how-prediction-markets-scaled-to-usd-21b-in-monthly-volume-in-2026" target="_blank" rel="noopener noreferrer" class="hover:text-roman-gold transition-colors">TRM Labs</a>
+                <span class="text-gray-700">&bull;</span>
+                <a href="https://www.theblock.co/post/383733/prediction-markets-kalshi-polymarket-duopoly-2025" target="_blank" rel="noopener noreferrer" class="hover:text-roman-gold transition-colors">The Block</a>
+                <span class="text-gray-700">&bull;</span>
+                <a href="https://finance.yahoo.com/markets/stocks/articles/kalshi-raises-1b-22b-valuation-131717311.html" target="_blank" rel="noopener noreferrer" class="hover:text-roman-gold transition-colors">Yahoo Finance (Kalshi $220亿)</a>
+                <span class="text-gray-700">&bull;</span>
+                <a href="https://cryptoslate.com/solana-crypto-casino-shifts-from-memecoins-to-prediction-markets/" target="_blank" rel="noopener noreferrer" class="hover:text-roman-gold transition-colors">CryptoSlate</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. THE PROBLEM — Why current markets fail socially           -->
+<!-- ============================================================ -->
+<section class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--warm" style="width:500px;height:500px;top:10%;left:25%;filter:blur(110px);animation:orbFloat3 30s ease-in-out infinite,orbPulse 10s ease-in-out infinite;--pulse-min:0.12;--pulse-max:0.3;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">问题所在</span></div>
+                <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-6 leading-tight">预测市场<br><span class="text-gray-500">偏离了重点</span></h2>
+                <div class="space-y-5 text-base md:text-lg text-gray-300 leading-relaxed">
+                    <p>Polymarket和Kalshi构建了强大的交易基础设施。但他们为独自盯着订单簿的个人设计。没有团队。没有社交证明。没有共同信念。</p>
+                    <p>The real energy in crypto has always been <strong class="text-white">collective</strong> ——Telegram alpha群组、影响者看法、社区信念。 Prediction markets have none of this. The $3250亿 opportunity has a social layer of exactly zero.</p>
+                    <p>Meanwhile, capital is rotating <strong class="text-white">out of memecoins</strong> into outcome-based platforms. On Solana, prediction market volume surged from &lt;10% to 57% of memecoin volume in 2025. 资本在流动。正确的产品还不存在。</p>
+                </div>
+            </div>
+            <div class="reveal delay-100">
+                <!-- SVG: Lonely trader vs. Community arena illustration -->
+                <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                    <defs>
+                        <linearGradient id="arenaGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.2"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0"/></linearGradient>
+                    </defs>
+                    <!-- Left side: lonely -->
+                    <text x="120" y="30" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" font-family="Montserrat" font-weight="600" letter-spacing="3">CURRENT</text>
+                    <rect x="50" y="50" width="140" height="160" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                    <circle cx="120" cy="120" r="20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                    <circle cx="120" cy="112" r="7" fill="rgba(255,255,255,0.2)"/>
+                    <path d="M108 130 Q120 140 132 130" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                    <text x="120" y="170" fill="rgba(255,255,255,0.25)" font-size="10" text-anchor="middle" font-family="Montserrat">Individual Trader</text>
+                    <text x="120" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">No teams</text>
+                    <text x="120" y="198" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">No shared alpha</text>
+                    <!-- Arrow -->
+                    <path d="M210 130 L270 130" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                    <polygon points="270,125 280,130 270,135" fill="#d4af37" opacity="0.5"/>
+                    <!-- Right side: arena -->
+                    <text x="380" y="30" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Cinzel" font-weight="700" letter-spacing="3">KEKIUS MARKET</text>
+                    <ellipse cx="380" cy="180" rx="100" ry="60" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5"/>
+                    <ellipse cx="380" cy="180" rx="70" ry="40" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.15)" stroke-width="1"/>
+                    <!-- People in arena -->
+                    <g opacity="0.8">
+                        <circle cx="350" cy="165" r="8" fill="rgba(212,175,55,0.3)"/><circle cx="350" cy="161" r="3" fill="rgba(212,175,55,0.5)"/>
+                        <circle cx="410" cy="165" r="8" fill="rgba(212,175,55,0.3)"/><circle cx="410" cy="161" r="3" fill="rgba(212,175,55,0.5)"/>
+                        <circle cx="380" cy="155" r="9" fill="rgba(212,175,55,0.4)"/><circle cx="380" cy="150" r="3.5" fill="rgba(212,175,55,0.6)"/>
+                        <circle cx="340" cy="190" r="6" fill="rgba(139,0,0,0.4)"/><circle cx="340" cy="187" r="2.5" fill="rgba(139,0,0,0.6)"/>
+                        <circle cx="420" cy="190" r="6" fill="rgba(139,0,0,0.4)"/><circle cx="420" cy="187" r="2.5" fill="rgba(139,0,0,0.6)"/>
+                        <circle cx="365" cy="195" r="6" fill="rgba(255,255,255,0.15)"/><circle cx="365" cy="192" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                        <circle cx="395" cy="195" r="6" fill="rgba(255,255,255,0.15)"/><circle cx="395" cy="192" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                    </g>
+                    <!-- Labels -->
+                    <text x="380" y="260" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Squads COMPETING</text>
+                    <text x="380" y="275" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Montserrat">Copy Trading | 排行榜 | Battles</text>
+                    <!-- Bottom comparison -->
+                    <rect x="30" y="310" width="200" height="60" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+                    <text x="130" y="335" fill="rgba(255,255,255,0.25)" font-size="10" text-anchor="middle" font-family="Montserrat">15-20% monthly retention</text>
+                    <text x="130" y="355" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Montserrat">Industry average</text>
+                    <rect x="270" y="310" width="220" height="60" rx="8" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.2)"/>
+                    <text x="380" y="335" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">40%+ monthly retention</text>
+                    <text x="380" y="355" fill="rgba(212,175,55,0.5)" font-size="9" text-anchor="middle" font-family="Montserrat">社交 features target</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2.5. WHY KEKIUS — The brand moat                              -->
+<!-- ============================================================ -->
+<section class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:450px;height:450px;top:-10%;right:10%;filter:blur(100px);animation:orbFloat2 26s ease-in-out infinite,orbPulse 10s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="reveal">
+                <div class="proof-frame rounded-lg overflow-hidden">
+                    <img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196334/image_48_zxavhk.png" alt="Elon Musk as Kekius Maximus on X" class="w-full">
+                </div>
+            </div>
+            <div class="reveal delay-100">
+                <div class="flex items-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The Brand</span></div>
+                <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-6 leading-tight">Under the Banner of<br><span class="text-gold">Kekius Maximus</span></h2>
+                <div class="space-y-5 text-base md:text-lg text-gray-300 leading-relaxed">
+                    <p>On New Year's Eve 2025, Elon Musk changed his name and avatar on X to <strong class="text-white">Kekius Maximus</strong> — a fusion of meme culture and Roman grandeur. Within hours, the symbol went viral across 200M+ followers.</p>
+                    <p>We didn't just adopt the meme. We became its <strong class="text-white">largest community builders</strong>, assembling 200K+ subscribers around the Kekius identity before anyone else moved. This isn't borrowed clout — it's first-mover ownership of a cultural moment.</p>
+                    <p>The name is the distribution. The meme is the moat. And $KEKIUS is the token that <strong class="text-roman-gold">turns attention into a financial instrument</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. THE VISION — Three Pillars                                 -->
+<!-- ============================================================ -->
+<section id="vision" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:500px;height:500px;top:5%;left:-10%;filter:blur(110px);animation:orbFloat1 28s ease-in-out infinite,orbPulse 10s ease-in-out infinite;--pulse-min:0.12;--pulse-max:0.28;"></div>
+        <div class="orb orb--arena" style="width:400px;height:400px;bottom:5%;right:5%;filter:blur(100px);animation:orbFloat2 24s ease-in-out infinite,orbPulse 9s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="column-decor column-decor--left hidden lg:block" style="height:80%;opacity:0.04;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="column-decor column-decor--right hidden lg:block" style="height:80%;opacity:0.04;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The 愿景</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">Three Pillars of the <span class="text-gold">Colosseum</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto italic px-2">"Kekius Market is not another prediction market. It is the social prediction arena — where every bet is a collective act, powered by $KEKIUS."</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- PILLAR 1: Squads -->
+            <div class="pitch-card p-6 sm:p-8 reveal flex flex-col text-center">
+                <div class="pillar-icon bg-roman-gold/10">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="12" r="5" stroke="#d4af37" stroke-width="1.5"/>
+                        <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                        <circle cx="8" cy="14" r="3.5" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <path d="M1 28c0-4 3-7 7-7" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.5"/>
+                        <circle cx="28" cy="14" r="3.5" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <path d="M35 28c0-4-3-7-7-7" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">Squads</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">The Legions</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Centurion creates a Squad (public or private)</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Members deposit $KEKIUS &amp; receive <strong class="text-white">shares (paes)</strong> proportional to stake</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>P&L distributed by share ratio automatically</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>Centurion设置管理费 = 收入</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-gold mt-1.5 flex-shrink-0 rounded-full"></div><span>排行榜按投资回报率对Squads排名</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-roman-gold/5 border border-roman-gold/10">
+                    <p class="text-xs text-gray-400"><strong class="text-roman-gold">Flywheel效应:</strong> 每个影响者都成为基金经理。他们赚取费用,追随者获得收益,平台赚取交易量。每个人都有机地宣传。</p>
+                </div>
+            </div>
+
+            <!-- PILLAR 2: Copy Trading -->
+            <div class="pitch-card p-6 sm:p-8 reveal delay-100 flex flex-col text-center">
+                <div class="pillar-icon bg-white/5">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="10" r="6" stroke="#d4af37" stroke-width="1.5"/>
+                        <path d="M18 16v8m-4 0h8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M6 32l4-6m20 6l-4-6" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                        <circle cx="6" cy="32" r="3" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                        <circle cx="30" cy="32" r="3" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                        <path d="M18 24l-8 4m8-4l8 4" stroke="#d4af37" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">Copy Trading</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">追随格斗士</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>具有历史、胜率、投资回报率的公开个人资料</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>使用可配置限制的自动复制预测</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>Top traders ranked as <strong class="text-white">Gladiators</strong> on leaderboard</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-white mt-1.5 flex-shrink-0 rounded-full"></div><span>格斗士从复制者获得$KEKIUS利润分享</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-white/5 border border-white/5">
+                    <p class="text-xs text-gray-400"><strong class="text-white">50%+ adoption</strong> on platforms that offer it. Proven mechanic. Gladiators can also lead Squads &mdash; features reinforce each other.</p>
+                </div>
+            </div>
+
+            <!-- PILLAR 3: PROPHECY ENGINE -->
+            <div class="pitch-card p-6 sm:p-8 reveal delay-200 flex flex-col text-center">
+                <div class="pillar-icon bg-roman-red/10">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="14" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+                        <circle cx="18" cy="18" r="10" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        <path d="M18 8v2m0 16v2m-10-10h2m16 0h2" stroke="#d4af37" stroke-width="1.5" opacity="0.4"/>
+                        <path d="M12 18c0-3.3 2.7-6 6-6" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="18" cy="18" r="2" fill="#d4af37"/>
+                        <path d="M18 6l-1 3h2l-1-3z" fill="#d4af37" opacity="0.6"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-roman font-bold text-white mb-2">Time Machine</h3>
+                <p class="text-roman-gold font-roman text-xs tracking-widest uppercase mb-4 pb-4 border-b border-white/10">预言引擎</p>
+                <ul class="space-y-3 text-sm text-gray-300 text-left flex-grow mb-6">
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>实时 probability curves as community bets</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>事件后回放:alpha在哪里?</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span><strong class="text-white">德尔菲神谕:</strong> AI基线预测</span></li>
+                    <li class="flex items-start gap-3"><div class="w-1.5 h-1.5 bg-roman-red mt-1.5 flex-shrink-0 rounded-full"></div><span>人类vs。机器每月排行榜</span></li>
+                </ul>
+                <div class="mt-auto p-4 rounded-lg bg-roman-red/5 border border-roman-red/10">
+                    <p class="text-xs text-gray-400"><strong class="text-roman-gold">内容机器:</strong> 每个预测都成为一个故事。无限可分享。当人类击败AI时,这是一个故事。当AI获胜时,这是一个故事。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. PRODUCT — 功能, Gamification, 收入                  -->
+<!-- ============================================================ -->
+<section id="product" class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--purple" style="width:450px;height:450px;top:-10%;right:-12%;filter:blur(100px);animation:orbFloat2 26s ease-in-out infinite;--pulse-min:0.14;--pulse-max:0.32;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">The 产品</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-4">Built for <span class="text-gold">Gladiators</span></h2>
+        </div>
+
+        <!-- 收入 Model -->
+        <div class="reveal">
+            <div class="pitch-card p-6 sm:p-8 md:p-10 border-roman-gold/10">
+                <h3 class="font-roman font-bold text-white text-lg sm:text-xl mb-8 text-center">收入架构</h3>
+                <!-- SVG 收入 Flow -->
+                <svg viewBox="0 0 800 200" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central node -->
+                    <rect x="310" y="70" width="180" height="60" rx="8" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="400" y="96" fill="#d4af37" font-size="11" text-anchor="middle" font-family="Cinzel" font-weight="700">KEKIUS MARKET</text>
+                    <text x="400" y="115" fill="rgba(255,255,255,0.4)" font-size="9" text-anchor="middle" font-family="Montserrat">Platform 收入</text>
+                    <!-- Left streams -->
+                    <rect x="20" y="20" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="38" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">交易费s in $KEKIUS (1-2%)</text>
+                    <text x="100" y="52" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">60-70% of revenue</text>
+                    <line x1="180" y1="42" x2="310" y2="90" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="20" y="80" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="98" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Squad费用</text>
+                    <text x="100" y="112" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">15-20% of revenue</text>
+                    <line x1="180" y1="102" x2="310" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="20" y="140" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="100" y="158" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Copy 交易费s</text>
+                    <text x="100" y="172" fill="rgba(212,175,55,0.6)" font-size="9" text-anchor="middle" font-family="Montserrat">10-15% of revenue</text>
+                    <line x1="180" y1="162" x2="310" y2="110" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <!-- Right outputs -->
+                    <rect x="620" y="40" width="160" height="44" rx="6" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.2)"/>
+                    <text x="700" y="58" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">$KEKIUS Buyback</text>
+                    <text x="700" y="72" fill="rgba(212,175,55,0.5)" font-size="9" text-anchor="middle" font-family="Montserrat">Token value accrual</text>
+                    <line x1="490" y1="90" x2="620" y2="62" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+
+                    <rect x="620" y="100" width="160" height="44" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                    <text x="700" y="118" fill="white" font-size="10" text-anchor="middle" font-family="Montserrat" font-weight="600">Premium / AI Oracle</text>
+                    <text x="700" y="132" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Montserrat">5-10% of revenue</text>
+                    <line x1="490" y1="100" x2="620" y2="122" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                    <rect x="620" y="160" width="160" height="30" rx="6" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.15)"/>
+                    <text x="700" y="180" fill="rgba(212,175,55,0.6)" font-size="10" text-anchor="middle" font-family="Cinzel" font-weight="600">Y1 目标: $13M</text>
+                    <line x1="490" y1="115" x2="620" y2="175" stroke="rgba(212,175,55,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4.5. FEATURES — Full feature arsenal                          -->
+<!-- ============================================================ -->
+<section id="features" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:400px;height:400px;top:10%;left:-8%;filter:blur(100px);animation:orbFloat1 24s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+        <div class="orb orb--arena" style="width:350px;height:350px;bottom:5%;right:-5%;filter:blur(90px);animation:orbFloat3 28s ease-in-out infinite;--pulse-min:0.08;--pulse-max:0.2;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">功能</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-4">The <span class="text-gold">武器库</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-2">Every mechanic designed to maximize engagement, retention, and volume. Not a roadmap promise — the product spec.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <!-- Duels -->
+            <div class="feature-grid-item reveal">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3L12 14L7 25" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M21 3L16 14L21 25" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M4 10H12" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M16 10H24" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="#d4af37" opacity="0.3"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">P2P</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">High Stakes</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Duels</h4>
+                <p class="text-sm text-gray-400">直接 P2P confrontation. A player posts a duel order with a fixed price (e.g. Limit YES @ $0.50) and a side bank (e.g. 100K). Anyone can accept by taking the opposite outcome at equal size. Winner takes the entire bank on top of standard market payout.</p>
+            </div>
+
+            <!-- Rewind -->
+            <div class="feature-grid-item reveal delay-100">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 14C8 10.686 10.686 8 14 8C17.314 8 20 10.686 20 14C20 17.314 17.314 20 14 20" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17L8 20L5 17" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11V14.5L16 16" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">Staking</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">TM$</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Rewind</h4>
+                <p class="text-sm text-gray-400">Once per month, TM$ stakers can lock a &ldquo;rewind point&rdquo; on an active market. If the outcome goes fully wrong, the balance rolls back to the snapshot value. Protection size scales with stake amount and duration.</p>
+            </div>
+
+            <!-- Blind Markets -->
+            <div class="feature-grid-item reveal delay-200">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 14C4 14 8 8 14 8C20 8 24 14 24 14C24 14 20 20 14 20C8 20 4 14 4 14Z" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><circle cx="14" cy="14" r="3" stroke="#d4af37" stroke-width="1.2"/><line x1="6" y1="22" x2="22" y2="6" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">Hidden Odds</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-red/20 text-roman-red uppercase tracking-wider font-bold">High Risk</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Blind Markets</h4>
+                <p class="text-sm text-gray-400">Markets with hidden probabilities. True position distribution stays invisible until the final phase. Current odds are revealed only at the moment of execution — full uncertainty until resolution.</p>
+            </div>
+
+            <!-- Flash Markets -->
+            <div class="feature-grid-item reveal">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3L8 16H14L12 25L20 12H14L16 3Z" fill="#d4af37" opacity="0.4" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">10-15分钟</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">实时</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Flash Markets</h4>
+                <p class="text-sm text-gray-400">10-15分钟内解决的超短期市场。高速、高压。专为想要即时结果和快速决策的用户构建。</p>
+            </div>
+
+            <!-- AI Forecast -->
+            <div class="feature-grid-item reveal delay-100">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="16" r="8" stroke="#d4af37" stroke-width="1.5"/><circle cx="14" cy="16" r="3" fill="#d4af37" opacity="0.2"/><circle cx="14" cy="16" r="1" fill="#d4af37"/><path d="M14 4V8" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M11 5L14 8L17 5" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">TM$ 独占</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">AI</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">AI Forecast</h4>
+                <p class="text-sm text-gray-400">仅限TM$质押者。AI分析订单簿、头寸动态和参与者活动,提供实时概率预测——市场变动前你的优势。</p>
+            </div>
+
+            <!-- Squads -->
+            <div class="feature-grid-item reveal delay-200">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 4L22 12V20L14 24L6 20V12L14 4Z" fill="#d4af37" opacity="0.3" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 10L17 14L14 18L11 14L14 10Z" fill="#d4af37" opacity="0.6"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">社交</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">收入分享</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Squads</h4>
+                <p class="text-sm text-gray-400">具有份额(pae)系统的集体池。用户可以任意金额进入并获得池中的比例份额。退出时,支付以当前份额价值重新计算。Squad管理员设置自己的管理费。专为影响者和社区领袖构建。</p>
+            </div>
+
+            <!-- 市场创建 -->
+            <div class="feature-grid-item reveal">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 24H22" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M8 24V10L14 6L20 10V24" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 10H20" stroke="#d4af37" stroke-width="1.2"/><rect x="11" y="14" width="6" height="4" rx="0.5" stroke="#d4af37" stroke-width="1" opacity="0.6"/><line x1="14" y1="18" x2="14" y2="24" stroke="#d4af37" stroke-width="1" opacity="0.4"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">UGC</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">费用分享</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">市场创建</h4>
+                <p class="text-sm text-gray-400">任何用户都可以通过发布固定押金来创建市场。通过审核后,创建者获得其市场生成的所有交易费用的份额。用户生成内容与收入分享相遇。</p>
+            </div>
+
+            <!-- Post-Resolve Insights -->
+            <div class="feature-grid-item reveal delay-100">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 4H20C20 4 22 4 22 6V22C22 22 22 24 20 24H8C8 24 6 24 6 22V6C6 4 8 4 8 4Z" stroke="#d4af37" stroke-width="1.5"/><path d="M10 10H18" stroke="#d4af37" stroke-width="1" stroke-linecap="round" opacity="0.5"/><path d="M10 13H18" stroke="#d4af37" stroke-width="1" stroke-linecap="round" opacity="0.5"/><path d="M10 16H15" stroke="#d4af37" stroke-width="1" stroke-linecap="round" opacity="0.5"/><circle cx="17" cy="19" r="3" stroke="#d4af37" stroke-width="1.2"/><path d="M19.2 21.2L21 23" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">TM$ 独占</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">AI</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Post-Resolve Insights</h4>
+                <p class="text-sm text-gray-400">仅限TM$质押者. After a market closes, AI publishes a full breakdown: why the outcome unfolded, which signals pointed to it early, and how you could have adjusted your strategy. Deep analytics powered by the Time Machine ecosystem.</p>
+            </div>
+
+            <!-- Swipe Markets -->
+            <div class="feature-grid-item reveal delay-200">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="4" width="16" height="20" rx="3" stroke="#d4af37" stroke-width="1.5"/><path d="M18 14L22 11" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><path d="M10 14L6 11" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><path d="M11 12L14 9L17 12" stroke="#d4af37" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 9V18" stroke="#d4af37" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">TikTok动态</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">滑动UX</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Swipe Markets</h4>
+                <p class="text-sm text-gray-400">TikTok/Tinder风格界面:滑动浏览市场——向右看多,向左跳过。无需研究订单簿即可即时参与。下一代交易者的发现模式。</p>
+            </div>
+
+            <!-- AI Commentator -->
+            <div class="feature-grid-item reveal">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 4C14 4 8 6 8 14V20H20V14C20 6 14 4 14 4Z" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 20C8 22 10.686 24 14 24C17.314 24 20 22 20 20" stroke="#d4af37" stroke-width="1.5"/><circle cx="14" cy="13" r="2" fill="#d4af37" opacity="0.25"/><path d="M14 15V18" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M11 8.5C11 8.5 12 7 14 7C16 7 17 8.5 17 8.5" stroke="#d4af37" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">实时</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">AI</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">AI Commentator</h4>
+                <p class="text-sm text-gray-400">实时AI评论市场运动——价格动态、情绪转变、活动激增。就像体育解说员,但用于预测市场。让市场充满生机。</p>
+            </div>
+
+            <!-- Last Man Standing -->
+            <div class="feature-grid-item reveal delay-100">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6H19V12C19 15.866 16.761 19 14 19C11.239 19 9 15.866 9 12V6Z" stroke="#d4af37" stroke-width="1.5"/><path d="M9 9H6V11C6 13 7.5 14 9 14" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M19 9H22V11C22 13 20.5 14 19 14" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M14 19V22" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M10 22H18" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/><path d="M12 3L14 5.5L16 3" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">竞技</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">奖池</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Last Man Standing</h4>
+                <p class="text-sm text-gray-400">竞技格式:所有参与者预测,任何猜错的人都被淘汰。一轮接一轮直到只剩一人。赢家获得整个奖池。盛大级别的参与。</p>
+            </div>
+
+            <!-- Trading Card -->
+            <div class="feature-grid-item reveal delay-200">
+                <div class="flex items-center justify-between mb-3">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="3" width="16" height="22" rx="2" stroke="#d4af37" stroke-width="1.5"/><circle cx="14" cy="11" r="3.5" stroke="#d4af37" stroke-width="1.2"/><path d="M9 21C9 18 11 17 14 17C17 17 19 18 19 21" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/><path d="M12 7L14 4L16 7" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/></svg>
+                    <div class="flex gap-1.5"><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">类NFT</span><span class="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500 uppercase tracking-wider font-bold">身份</span></div>
+                </div>
+                <h4 class="font-bold text-white mb-2 font-roman text-lg">Trading Card</h4>
+                <p class="text-sm text-gray-400">你的个人统计卡——损益、预测准确率、稀有胜利。随着你升级,随时间视觉上演变。设计用于在社区内分享和建立声誉。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. PROOF — Track record (compressed, evidence not headline)  -->
+<!-- ============================================================ -->
+<section id="proof" class="section-py bg-roman-base border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:350px;height:350px;top:5%;left:5%;filter:blur(90px);animation:orbFloat1 24s ease-in-out infinite;--pulse-min:0.14;--pulse-max:0.32;"></div>
+        <div class="orb orb--purple" style="width:400px;height:400px;top:40%;right:-5%;filter:blur(100px);animation:orbFloat3 30s ease-in-out infinite;animation-delay:-5s;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">Why Us</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl lg:text-5xl font-roman font-bold text-white mb-4 sm:mb-6">We Don't Just Build Concepts.<br><span class="text-gold">We Launch Empires.</span></h2>
+            <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-2">Proven track record of turning attention into hard capitalization. Three times.</p>
+        </div>
+
+        <!-- Video Pitch -->
+        <div class="max-w-5xl mx-auto mb-12 lg:mb-16 reveal">
+            <div class="pitch-card p-3 sm:p-4 md:p-5">
+                <div class="flex items-center gap-3 mb-4 px-1">
+                    <div class="w-2 h-2 rounded-full bg-roman-gold animate-pulse flex-shrink-0"></div>
+                    <span class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-bold font-roman">产品 Pitch</span>
+                </div>
+                <div class="relative w-full rounded-lg overflow-hidden" style="padding-bottom:56.25%;">
+                    <iframe
+                        src="https://www.youtube.com/embed/NOXBBhWNqSw?rel=0&modestbranding=1&color=white"
+                        title="Kekius Market — 产品 Pitch"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        class="absolute inset-0 w-full h-full rounded-lg"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Moat stats -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 lg:mb-14 reveal">
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-5xl font-roman font-bold text-white mb-1"><span class="counter" data-target="200" data-suffix="K">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Active subscribers</div>
+                <div class="text-[10px] text-roman-gold mt-1">75% engagement rate</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-5xl font-roman font-bold text-white mb-1"><span class="counter" data-target="8" data-prefix="$" data-suffix="B+">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">交易量 generated</div>
+                <div class="text-[10px] text-roman-gold mt-1">As affiliates (leaked revenue)</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-5xl font-roman font-bold text-white mb-1"><span class="counter" data-target="13000" data-suffix="+">0</span></div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">KYC users onboarded</div>
+                <div class="text-[10px] text-roman-gold mt-1">Via MEXC / Bitget</div>
+            </div>
+            <div class="pitch-card text-center p-5 sm:p-6">
+                <div class="text-3xl sm:text-5xl font-roman font-bold text-gold mb-1">~0</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">Customer acquisition cost</div>
+                <div class="text-[10px] text-roman-gold mt-1">Own legions, not mercenaries</div>
+            </div>
+        </div>
+
+        <!-- Token track record — compact -->
+        <div class="grid md:grid-cols-3 gap-6 reveal delay-100">
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">$GRIMACE</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">1000x</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>8K to 900K TG subs</p>
+                    <p><strong class="text-white">$100K to $100M</strong> market cap</p>
+                    <p>Beat ETH by daily volume on MEXC</p>
+                </div>
+                <div class="proof-frame mt-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196335/image_46_eybivo.png" alt="GRIMACE"></div>
+            </div>
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">$SEX</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">615x</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>Second token by Odyssey</p>
+                    <p><strong class="text-white">$780K to $480M</strong> in 6 months</p>
+                    <p>8,000 peak concurrent viewers</p>
+                </div>
+                <div class="proof-frame mt-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_46_1_knyspc.png" alt="SEX"></div>
+            </div>
+            <div class="pitch-card p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                    <h3 class="text-xl font-roman font-bold text-white">G.O.D.</h3>
+                    <span class="text-[10px] text-roman-gold uppercase tracking-widest font-bold">#1 CIS</span>
+                </div>
+                <div class="space-y-2 text-xs text-gray-400 flex-grow">
+                    <p>Grimace Odyssey Donations</p>
+                    <p>100M+ views, <strong class="text-white">$1M+ donated</strong></p>
+                    <p>#1 charity fund in CIS in 4 months</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-4">
+                    <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_17_nop3wi.png" alt="TG"></div>
+                    <div class="proof-frame"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1774196333/image_18_fjl8hf.png" alt="IG"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. ROADMAP                                                    -->
+<!-- ============================================================ -->
+<section id="roadmap" class="section-py bg-roman-pattern border-b border-white/5 orb-section">
+    <div class="orb-layer">
+        <div class="orb orb--warm" style="width:400px;height:400px;top:20%;left:-5%;filter:blur(100px);animation:orbFloat1 28s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.25;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-12 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-8 h-[1px] bg-roman-gold"></div><span class="text-roman-gold font-roman text-xs tracking-widest uppercase font-bold">路线图</span><div class="w-8 h-[1px] bg-roman-gold"></div></div>
+            <h2 class="text-3xl md:text-5xl font-roman font-bold text-white">The Path of <span class="text-gold">Conquest</span></h2>
+            <p class="text-base text-gray-400 mt-4 max-w-2xl mx-auto">From beta to empire — every quarter delivers working product, real users, and measurable traction.</p>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line hidden sm:block"></div>
+            <div class="space-y-8 sm:space-y-10">
+
+                <!-- BETA LAUNCH -->
+                <div class="flex gap-6 sm:gap-8 reveal">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot timeline-dot--active"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6 border-roman-gold/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">BETA LAUNCH</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">April 20, 2026</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">The Arena Opens</h4>
+                        <p class="text-sm text-gray-400 mb-4">Closed beta with core prediction engine. Order book, limit orders, binary outcomes — the foundational layer goes live. All markets denominated in $KEKIUS from day one.</p>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-roman-gold animate-pulse"></div>
+                            <span class="text-xs text-roman-gold font-bold uppercase tracking-wider">开发中</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 2026 -->
+                <div class="flex gap-6 sm:gap-8 reveal delay-100">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">Q2 2026</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">第一军团</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">目标: <span class="text-gold">2,000 用户</span></h4>
+                        <p class="text-sm text-gray-400 mb-4">社交 layer activation. Swipe Markets bring TikTok-style discovery. Duels introduce P2P high-stakes confrontation. Squads launch the collective trading primitive. Referral engine and Telegram Mini App fuel organic distribution.</p>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Swipe Markets</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Duels</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Squads</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Referral System</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Telegram Mini App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 2026 -->
+                <div class="flex gap-6 sm:gap-8 reveal delay-200">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">Q3 2026</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">全面公开发布</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">目标: <span class="text-gold">10,000 用户</span></h4>
+                        <p class="text-sm text-gray-400 mb-4">The arena goes public. Rewind and Blind Markets add strategic depth. Flash Markets deliver instant 10-minute outcomes. AI Forecast gives TM$ stakers a probabilistic edge. 市场创建 opens UGC. Last Man Standing tournaments drive spectacle-grade retention.</p>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-roman-gold/10 text-roman-gold uppercase tracking-wider font-bold">Full Launch</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Rewind</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Blind Markets</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Flash Markets</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">AI Forecast</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">市场创建</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Last Man Standing</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Post-Resolve Insights</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 2026 -->
+                <div class="flex gap-6 sm:gap-8 reveal delay-200">
+                    <div class="hidden sm:flex flex-col items-center pt-1">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="pitch-card flex-grow p-5 sm:p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-roman-gold font-roman font-bold text-sm">Q4 2026</span>
+                            <span class="text-gray-600 text-xs uppercase tracking-widest">帝国</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">目标: <span class="text-gold">30,000 用户</span></h4>
+                        <p class="text-sm text-gray-400 mb-4">Advanced intelligence and identity layer. Time Machine lets users freeze and replay markets. Copy Trading turns top predictors into investable strategies. AI Commentator delivers real-time narration of market dynamics. Trading Card builds on-chain reputation.</p>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Time Machine</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Copy Trading</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">AI Commentator</span>
+                            <span class="text-[9px] px-2.5 py-1 rounded-full bg-white/5 text-gray-400 uppercase tracking-wider font-bold">Trading Card</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. FUNDRAISE                                                  -->
+<!-- ============================================================ -->
+<section id="fundraise" class="py-20 sm:py-24 lg:py-32 bg-roman-base orb-section relative">
+    <div class="orb-layer">
+        <div class="orb orb--gold" style="width:600px;height:600px;top:10%;left:50%;margin-left:-300px;filter:blur(130px);animation:orbFloat3 35s ease-in-out infinite,orbPulse 12s ease-in-out infinite;--pulse-min:0.1;--pulse-max:0.28;"></div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="column-decor column-decor--left hidden md:block" style="height:85%;opacity:0.055;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="column-decor column-decor--right hidden md:block" style="height:85%;opacity:0.055;color:#d4af37;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 700" style="height:100%;width:auto;"><use href="#roman-column"/></svg></div>
+    <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-12 lg:mb-16 reveal">
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-12 h-[1px] bg-roman-gold/50"></div><i class="fa-solid fa-crown text-roman-gold text-sm"></i><div class="w-12 h-[1px] bg-roman-gold/50"></div></div>
+            <h2 class="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-roman font-bold text-white mb-4 sm:mb-6 uppercase tracking-wider">进入帝国元老院</h2>
+            <p class="text-gray-400 font-roman tracking-widest text-xs sm:text-sm">种子轮</p>
+        </div>
+        <div class="pitch-card p-6 sm:p-10 md:p-14 reveal delay-100 border-white/10 relative overflow-hidden">
+            <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16 pb-10 sm:pb-12 border-b border-white/10">
+                <div class="text-center sm:text-left">
+                    <div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">Raising (Equity)</div>
+                    <div class="text-5xl sm:text-6xl font-roman font-black text-white">$400万</div>
+                </div>
+                <div class="text-center sm:text-right">
+                    <div class="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-2 font-bold">估值</div>
+                    <div class="text-5xl sm:text-6xl font-roman font-black text-white"><span class="counter" data-target="40" data-prefix="$" data-suffix="M">0</span></div>
+                    <div class="text-[10px] sm:text-xs text-roman-gold mt-3 uppercase tracking-widest">Series A planned for 2026-2027 @ $2亿</div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <div>
+                    <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">盈利路径</h3>
+                    <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                        <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q1</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$32.8万</span></div>
+                        <div class="flex justify-between items-center p-3 sm:p-4 bg-white/5 rounded border border-white/5"><span class="text-gray-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Q2</span><span class="font-roman text-lg sm:text-xl text-white font-bold">$250万</span></div>
+                        <div class="flex justify-between items-center p-4 sm:p-5 bg-roman-gold/10 rounded border border-roman-gold/30"><span class="text-gold text-sm sm:text-base font-bold uppercase tracking-wider">第1年</span><span class="font-roman text-2xl sm:text-3xl text-gold font-bold">$1303万</span></div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 sm:p-6 bg-black rounded-lg border border-white/10 gap-4">
+                        <div class="min-w-0"><div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mb-1">预计投资回报率</div><div class="text-[10px] sm:text-sm text-gray-400">($1.303M profit in Y1 at 10% stake)</div></div>
+                        <div class="text-3xl sm:text-5xl font-roman font-black text-white flex-shrink-0 tabular-nums" style="min-width:7ch;text-align:right;"><span class="counter" data-target="65.15" data-suffix="%">0</span></div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-roman font-bold text-white mb-6 sm:mb-8 border-b border-white/5 pb-4">Use of Proceeds</h3>
+                    <div class="w-full h-2 flex rounded bg-white/5 mb-6 sm:mb-8">
+                        <div class="bg-white progress-fill transition-all duration-1000 ease-out rounded-l" style="width:0%" data-width="28%"></div>
+                        <div class="bg-gray-400 progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="28%"></div>
+                        <div class="bg-gray-600 progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="19%"></div>
+                        <div class="bg-roman-border progress-fill transition-all duration-1000 ease-out" style="width:0%" data-width="14%"></div>
+                        <div class="bg-[#111] progress-fill transition-all duration-1000 ease-out rounded-r" style="width:0%" data-width="11%"></div>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-white rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Salaries</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-400 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Marketing</span></div><span class="font-roman font-bold text-white text-sm">28%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Maintenance</span></div><span class="font-roman font-bold text-white text-sm">19%</span></div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-roman-border rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Legal</span></div><span class="font-roman font-bold text-white text-sm">14%</span></div>
+                        <div class="flex justify-between items-center pb-2"><div class="flex items-center gap-3"><div class="w-2 h-2 bg-[#111] border border-white/20 rounded-full flex-shrink-0"></div><span class="text-xs sm:text-sm text-gray-300">Other + Buffer</span></div><span class="font-roman font-bold text-white text-sm">11%</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 sm:mt-12 text-center">
+                <a href="https://t.me/basharxd" target="_blank" rel="noopener noreferrer" class="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-roman font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-gray-200 transition-colors rounded shadow-[0_0_20px_rgba(255,255,255,0.2)]">Request Full Deck</a>
+                <p class="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-widest mt-4">Telegram: <span class="text-roman-gold font-bold">@basharxd</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-roman-base border-t border-white/5 pt-12 sm:pt-16 pb-8">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
+        <div class="text-white/5 font-roman font-black text-5xl sm:text-7xl md:text-9xl tracking-[0.3em] mb-8 sm:mb-12 select-none pointer-events-none">S P Q R</div>
+        <div class="flex items-center justify-center gap-3 mb-4"><img src="https://res.cloudinary.com/dp7d6x1oq/image/upload/v1773759947/Screenshot_1_rm37qj.jpg" alt="Kekius Logo" class="w-6 h-6 rounded-full border border-white/20 opacity-80 grayscale"><span class="font-roman text-gray-500 uppercase tracking-widest text-xs font-bold">Kekius Market</span></div>
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-3">Odyssey &mdash; Founder &amp; CEO</p>
+        <div class="flex items-center justify-center gap-6 mb-8">
+            <a href="https://t.me/doge1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-telegram text-base"></i>@doge1</a>
+            <a href="https://x.com/grimaceodysseus" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-500 hover:text-roman-gold transition-colors text-xs uppercase tracking-widest font-semibold"><i class="fa-brands fa-x-twitter text-base"></i>@grimaceodysseus</a>
+        </div>
+        <p class="text-[10px] text-gray-600 font-normal max-w-3xl mx-auto mb-6 leading-relaxed px-4">Disclaimer: The information provided on this website does not constitute investment advice. Investment in early-stage startups involves high risk (DYOR). Kekius Market reserves the right to modify product specifications as development progresses.</p>
+        <div class="text-gray-700 text-[10px] font-roman uppercase tracking-widest">&copy; 2026 Kekius Market. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
+    <button id="lightbox-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 text-white hover:text-roman-gold text-3xl sm:text-5xl md:text-5xl z-50 transition-colors w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-full max-h-full rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.15)] border border-white/10 transform scale-95 transition-transform duration-300">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    // Lightbox
+    const lb=document.getElementById('lightbox'),lbi=document.getElementById('lightbox-img'),lbc=document.getElementById('lightbox-close');
+    document.querySelectorAll('.proof-frame img').forEach(img=>{img.addEventListener('click',e=>{lbi.src=e.target.src;lb.classList.remove('hidden');void lb.offsetWidth;lb.classList.remove('opacity-0');lbi.classList.remove('scale-95');lbi.classList.add('scale-100');document.body.style.overflow='hidden';});});
+    const closeLb=()=>{lb.classList.add('opacity-0');lbi.classList.remove('scale-100');lbi.classList.add('scale-95');setTimeout(()=>{lb.classList.add('hidden');document.body.style.overflow='';},300);};
+    lbc.addEventListener('click',closeLb);lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.classList.contains('hidden'))closeLb();});
+
+    // Reveal
+    const ro=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("active");obs.unobserve(entry.target);}});},{threshold:0.1,rootMargin:"0px 0px -50px 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+
+    // Counters
+    const co=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){const target=parseFloat(entry.target.getAttribute("data-target"));const prefix=entry.target.getAttribute("data-prefix")||"";const suffix=entry.target.getAttribute("data-suffix")||"";let start=null;const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/2000,1);const ease=1-Math.pow(1-p,4);let val=ease*target;let fmt=target%1!==0?val.toFixed(2):Math.floor(val).toLocaleString('en-US');entry.target.innerText=prefix+fmt+suffix;if(p<1)requestAnimationFrame(step);else entry.target.innerText=prefix+(target%1!==0?target.toFixed(2):target.toLocaleString('en-US'))+suffix;};requestAnimationFrame(step);obs.unobserve(entry.target);}});},{threshold:0.5});
+    document.querySelectorAll(".counter").forEach(el=>co.observe(el));
+
+    // Progress bars
+    const po=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.style.width=entry.target.getAttribute("data-width");},100);obs.unobserve(entry.target);}});},{threshold:0.5});
+    document.querySelectorAll(".progress-fill").forEach(el=>po.observe(el));
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.orb').forEach(o=>o.style.animation='none');
+});
+window.addEventListener('scroll',function(){const n=document.getElementById('navbar');if(window.scrollY>50){n.classList.add('bg-roman-base/90','backdrop-blur-md','border-white/10');n.classList.remove('border-transparent','bg-roman-base/0');}else{n.classList.remove('bg-roman-base/90','backdrop-blur-md','border-white/10');n.classList.add('border-transparent','bg-roman-base/0');}});
+</script>
+</body>
+</html>
